@@ -1,4 +1,4 @@
-Test Stack configuration occurs through a single AMD module that is specified using the `config` command-line argument. By convention, this module is typically placed at `my-project/test/teststack`, though Test Stack is designed to allow multiple configurations for instances where you want to quickly switch between different test configurations.
+Test Stack configuration occurs through a single AMD module that is specified using the `config` command-line argument. By convention, this module is typically placed at `my-project/test/teststack`, though Test Stack is designed to allow multiple configurations for instances where you want to quickly switch between different test configurations. For an example of a working Test Stack configuration, you may look at the [Test Stack self-test configuration](../blob/master/test/teststack.js).
 
 The following configuration options are available:
 
