@@ -80,6 +80,12 @@ Note that version numbers must be strings if using Sauce Labs.</td>
 <tr>
 <th scope="row"><code>webdriver</code><br><pre><code>{ host: 'localhost',
   port: 4444 }</code></pre></th>
-<td>Connection information for the remote WebDriver (a.k.a. Selenium 2) service. Available options are <code>host</code>, <code>port</code>, <code>username</code>, and <code>accessKey</code>. For Sauce Labs without Sauce Connect, the host should be <code>ondemand.saucelabs.com</code>. For Sauce Connect, the host should be <code>localhost</code>. (Note that by default, Sauce Connect starts on port <strong>4445</strong> if it is not started by Test Stack with <code>useSauceConnect</code>.) For custom Selenium 2 or Selenium 2 Grid servers, the <code>host</code> should be the address of your server. <code>username</code> and <code>accessKey</code> are used by Sauce Labs only. If you do not want to expose your username and access key, put them in the <code>SAUCE_USERNAME</code> and <code>SAUCE_ACCESS_KEY</code> environment variables instead.</td>
+<td>Connection information for the remote WebDriver (a.k.a. Selenium 2) service. Available options are <code>host</code>, <code>port</code>, <code>username</code>, and <code>accessKey</code>.<br>
+<br>
+For Sauce Labs without Sauce Connect, the host should be <code>ondemand.saucelabs.com</code>.<br>
+For Sauce Connect, the host should be <code>localhost</code>. (Note that by default, Sauce Connect starts on port <strong>4445</strong> if it is not started by Test Stack with <code>useSauceConnect</code>.)<br>
+For custom Selenium 2 or Selenium 2 Grid servers, the <code>host</code> should be the address of your server.<br>
+<br>
+<code>username</code> and <code>accessKey</code> are used by Sauce Labs only. If you do not want to expose your username and access key, put them in the <code>SAUCE_USERNAME</code> and <code>SAUCE_ACCESS_KEY</code> environment variables instead.</td>
 </tr>
 </table>
