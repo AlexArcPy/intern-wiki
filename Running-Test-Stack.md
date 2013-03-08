@@ -42,7 +42,7 @@ In order to use this method, you will need one of the following:
 
 This execution method is required for functional testing, as a server is required in order to drive the client browser.
 
-More information on how to configure Test Stack to work with your testing infrastructure can be found in the TODO Configuration wiki page.
+More information on how to configure Test Stack to work with your testing infrastructure can be found on the [Configuring Test Stack](Configuring-Test-Stack) page.
 
 A typical execution of this method would look like this:
 
