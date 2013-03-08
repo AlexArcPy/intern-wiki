@@ -81,4 +81,4 @@ You may also use other third party continuous integration solutions like [Jenkin
 
 An execution of this method would use the same command-line arguments from the previous section, except the command is executed by your post-commit script or CI software instead.
 
-More information on integration with Travis CI can be found on the TODO Travis CI wiki page.
+More information on integration with Travis CI can be found on the [Travis CI Integration](Travis-CI-Integration) page.
