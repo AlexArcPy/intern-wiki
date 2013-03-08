@@ -16,9 +16,11 @@ The following configuration options are available:
 <th scope="row"><code>environments</code><br>(empty array)</th>
 <td>Environments (browsers) to run integration testing against. The same options used in <code>capabilities</code> are used for each environment specified in the array. If arrays are provided for <code>browserName</code>, <code>version</code>, <code>platform</code>, or <code>platformVersion</code>, all possible options will be permutated. For example:
 
-<pre><code>environments: [ { browserName: 'chrome',
-version: [ '23', '24' ],
-platform: [ 'Linux', 'Mac OS 10.8' ] } ]</code></pre>
+<pre><code>environments: [ {
+  browserName: 'chrome',
+  version: [ '23', '24' ],
+  platform: [ 'Linux', 'Mac OS 10.8' ]
+} ]</code></pre>
 
 This will generate 4 environments: Chrome 23 on Linux, Chrome 23 on Mac OS 10.8, Chrome 24 on Linux, and Chrome 24 on Mac OS 10.8. Other capabilities options specified for an environment are not permutated, but are simply used as-is.<br>
 <br>
