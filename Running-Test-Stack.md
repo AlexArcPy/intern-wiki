@@ -1,4 +1,37 @@
-Running Test Stack is straightforward. The only real requirement is that the package you are testing should be a sibling of the Test Stack package. There are several different ways to actually use Test Stack, depending upon your needs:
+Running Test Stack is straightforward. The only real requirement is that the package you are testing should be a sibling of the Test Stack package.
+
+The following arguments can be used when running Test Stack:
+
+<table>
+<tr>
+<th scope="col">Argument</th>
+<th>Optional?</th>
+<th>Description</th>
+</tr>
+<tr>
+<th scope="row"><code>config</code></th>
+<td>No</td>
+<td>The module ID of the configuration file that should be used when running Test Stack.</td>
+</tr>
+<tr>
+<th scope="row"><code>suites</code></th>
+<td>Yes</td>
+<td>One or more module IDs that should be tested in lieu of the full list of suites in the configuration file. To specify multiple suites, simply provide the <code>suites</code> argument multiple times.</td>
+</tr>
+<tr>
+<th scope="row"><code>reporters</code></th>
+<td>Yes</td>
+<td>One or more reporters that should be used in lieu of the reporters listed in the configuration file. To specify multiple reporters, simply provide the <code>reporters</code> argument multiple times.</td>
+</tr>
+<tr>
+<th scope="row"><code>proxyOnly</code></th>
+<td>Yes</td>
+<td>When using <code>runner.js</code>, the <code>proxyOnly</code> argument may be provided. This causes the runner to start the instrumenting proxy but perform no other work, so you can load instrumented tests by manually navigating to <code>{{proxyUrl}}/__teststack/client.html</code>.</td>
+</table>
+
+More detailed argument usage examples can be found below.
+
+There are several different ways to actually use Test Stack, depending upon your needs:
 
 # As a stand-alone browser client
 
