@@ -1,4 +1,4 @@
-Test Stack can be executed several different ways, depending upon your needs:
+Running Test Stack is straightforward. The only real requirement is that the package you are testing should be a sibling of the Test Stack package. There are several different ways to actually use Test Stack, depending upon your needs:
 
 # As a stand-alone browser client
 
