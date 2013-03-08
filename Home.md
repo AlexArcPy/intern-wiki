@@ -1,1 +1,0 @@
-Welcome to the dojo2-teststack wiki!
