@@ -1,0 +1,1 @@
+Test Stack support is currently available through the [dojo-interest mailing list](http://mail.dojotoolkit.org/mailman/listinfo/dojo-interest). Commercial support is available from [SitePen](http://www.sitepen.com). Bug reports and pull requests should be submitted to the canonical repository, currently https://github.com/csnover/dojo2-teststack/.
