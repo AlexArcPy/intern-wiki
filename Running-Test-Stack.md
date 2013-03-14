@@ -27,6 +27,12 @@ The following arguments can be used when running Test Stack:
 <th scope="row"><code>proxyOnly</code></th>
 <td>Yes</td>
 <td>When using <code>runner.js</code>, the <code>proxyOnly</code> argument may be provided. This causes the runner to start the instrumenting proxy but perform no other work, so you can load instrumented tests by manually navigating to <code>{{proxyUrl}}/__teststack/client.html</code>.</td>
+</tr>
+<tr>
+<th scope="row"><code>autoRun</code></th>
+<td>Yes</td>
+<td>When set to <code>false</code>, tests will not start running automatically after they are all loaded. Otherwise, if <code>true</code> or left undefined, tests will start running automatically.</td>
+</tr>
 </table>
 
 More detailed argument usage examples can be found below.
