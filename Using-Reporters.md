@@ -47,17 +47,17 @@ The currently available pub/sub topics that are relevant to reporters are:
 </tr>
 
 <tr>
-<th scope="row">/runner/start</th>
-<td>runner</td>
-<td>(none)</td>
-<td>This topic is published after the runner has finished its configuration process and has started the Sauce Connect server, if one is being used. It is published immediately before the test suite starts running.</td>
-</tr>
-
-<tr>
 <th scope="row">/runner/end</th>
 <td>runner</td>
 <td>(none)</td>
 <td>This topic is published after the runner has finished running all test suites and is ready to shut down.</td>
+</tr>
+
+<tr>
+<th scope="row">/runner/start</th>
+<td>runner</td>
+<td>(none)</td>
+<td>This topic is published after the runner has finished its configuration process and has started the Sauce Connect server, if one is being used. It is published immediately before the test suite starts running.</td>
 </tr>
 
 <tr>
@@ -82,6 +82,13 @@ The currently available pub/sub topics that are relevant to reporters are:
 </tr>
 
 <tr>
+<th scope="row">/suite/new</th>
+<td>client, runner</td>
+<td><code>suite</code> - A Suite instance</td>
+<td>This topic is published when new suite is created.</td>
+</tr>
+
+<tr>
 <th scope="row">/test/end</th>
 <td>client, runner</td>
 <td><code>test</code> - A Test instance</td>
@@ -93,6 +100,13 @@ The currently available pub/sub topics that are relevant to reporters are:
 <td>client, runner</td>
 <td><code>test</code> - A Test instance</td>
 <td>This topic is published when a test fails. The error that caused the failure can be found at <code>test.error</code>.</td>
+</tr>
+
+<tr>
+<th scope="row">/test/new</th>
+<td>client, runner</td>
+<td><code>test</code> - A Test instance</td>
+<td>This topic is published when a new test is created.</td>
 </tr>
 
 <tr>
