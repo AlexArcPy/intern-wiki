@@ -1,6 +1,16 @@
-Once you’ve run a test, you need to be able to get information out of Test Stack into a form that is actually useful to you. At this time, reporters are simply modules that subscribe to whichever pub/sub topics they care about.
+Once you’ve run a test, you need to be able to get information out of Test Stack into a form that is actually useful to you. This is where Reporters come in. Reporters are modules that use a pub/sub architecture to receive specific messages about the tests being executed.
 
-The currently available pub/sub topics that are relevant to reporters are:
+## Available Reporters
+* [console](https://github.com/csnover/dojo2-teststack/blob/master/lib/reporters/console.js) - outputs test pass/fail messages to the console, grouped by suite
+* [lcov](https://github.com/csnover/dojo2-teststack/blob/master/lib/reporters/lcov.js) - generates an <code>lcov.info</code> from collated coverage data
+* [runner](https://github.com/csnover/dojo2-teststack/blob/master/lib/reporters/runner.js) - outputs current state of the runner, code coverage and test results for each environment tested, and a total test result
+* [webdriver](https://github.com/csnover/dojo2-teststack/blob/master/lib/reporters/webdriver.js) - proxies test results from a client back to the test runner via the instrumentation proxy; also displays very basic running test output as HTML to provide improved state information when watching a test run via Sauce Labs live view
+
+## Custom Reporters
+
+As mentioned, Reporters are extremely simple modules. These modules subscribe to message channels that provide the information they care about, such as when a test passes or fails.
+
+### Available Topics
 
 <table>
 <tr>
@@ -124,39 +134,3 @@ The currently available pub/sub topics that are relevant to reporters are:
 <td>This topic is published immediately before a test starts.</td>
 </tr>
 </table>
-
-Reporters that come with Test Stack include:
-
-<table>
-<tr>
-<th scope="col">Reporter</th>
-<th scope="col">Platform</th>
-<th scope="col">Description</th>
-</tr>
-
-<tr>
-<th scope="row">console</th>
-<td>client</td>
-<td>This reporter outputs test pass/fail messages to the console, grouped by suite.</td>
-</tr>
-
-<tr>
-<th scope="row">lcov</th>
-<td>runner</td>
-<td>This reporter generates an <code>lcov.info</code> from collated coverage data.</td>
-</tr>
-
-<tr>
-<th scope="row">runner</th>
-<td>runner</td>
-<td>This reporter outputs information to the console about the current state of the runner, code coverage and test results for each environment tested, and a total test result.</td>
-</tr>
-
-<tr>
-<th scope="row">webdriver</th>
-<td>client</td>
-<td>This reporter proxies test results from a client back to the test runner via the instrumentation proxy. It also displays very basic running test output as HTML to provide improved state information when watching a test run via Sauce Labs live view.</td>
-</tr>
-</table>
-
-You may write your own custom reporters for your own projects and load them using a complete module ID.
