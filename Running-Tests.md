@@ -1,6 +1,6 @@
-Running Test Stack is straightforward. The only real requirement is that the package you are testing should be a sibling of the Test Stack package.
+Running Intern is straightforward. The only real requirement is that the package you are testing should be a sibling of the Intern package.
 
-The following arguments can be used when running Test Stack:
+The following arguments can be used when running Intern:
 
 <table>
 <tr>
@@ -11,7 +11,7 @@ The following arguments can be used when running Test Stack:
 <tr>
 <th scope="row"><code>config</code></th>
 <td>No</td>
-<td>The module ID of the configuration file that should be used when running Test Stack.</td>
+<td>The module ID of the configuration file that should be used when running Intern.</td>
 </tr>
 <tr>
 <th scope="row"><code>suites</code></th>
@@ -26,7 +26,7 @@ The following arguments can be used when running Test Stack:
 <tr>
 <th scope="row"><code>proxyOnly</code></th>
 <td>Yes</td>
-<td>When using <code>runner.js</code>, the <code>proxyOnly</code> argument may be provided. This causes the runner to start the instrumenting proxy but perform no other work, so you can load instrumented tests by manually navigating to <code>{{proxyUrl}}/__teststack/client.html</code>.</td>
+<td>When using <code>runner.js</code>, the <code>proxyOnly</code> argument may be provided. This causes the runner to start the instrumenting proxy but perform no other work, so you can load instrumented tests by manually navigating to <code>{{proxyUrl}}/__intern/client.html</code>.</td>
 </tr>
 <tr>
 <th scope="row"><code>autoRun</code></th>
@@ -37,20 +37,20 @@ The following arguments can be used when running Test Stack:
 
 More detailed argument usage examples can be found below.
 
-There are several different ways to actually use Test Stack, depending upon your needs:
+There are several different ways to actually use Intern, depending upon your needs:
 
 ## As a stand-alone browser client
 
-This execution method is useful when you are in the process of writing unit tests that require a browser and you need to quickly check to make sure that they are actually working. It is invoked by navigating directly to `client.html`. The `config` argument should be the module ID of your project’s Test Stack configuration file (typically `project-name/test/teststack`). One or more `suites` and `reporters` arguments may also be used. A typical execution that runs all tests and outputs results to the Web console would look like this:
+This execution method is useful when you are in the process of writing unit tests that require a browser and you need to quickly check to make sure that they are actually working. It is invoked by navigating directly to `client.html`. The `config` argument should be the module ID of your project’s Intern configuration file (typically `project-name/test/intern`). One or more `suites` and `reporters` arguments may also be used. A typical execution that runs all tests and outputs results to the Web console would look like this:
 
 ```text
-http://localhost/teststack/client.html?config=my-package/test/teststack
+http://localhost/intern/client.html?config=my-package/test/intern
 ```
 
 A more complex execution might look like this:
 
 ```text
-http://localhost/teststack/client.html?config=my-package/test/teststack&suites=my-package/test/request
+http://localhost/intern/client.html?config=my-package/test/intern&suites=my-package/test/request
 &suites=my-package/test/animation&reporters=console&reporters=html
 ```
 
@@ -59,13 +59,13 @@ http://localhost/teststack/client.html?config=my-package/test/teststack&suites=m
 This execution method is useful when you are in the process of writing unit tests that do not require a browser and you want to quickly check to make sure that they are actually working. It is invoked by running `node client.js`. The command-line arguments for `client.js` are identical to the URL arguments for running a stand-alone browser client. A typical execution that runs all tests and outputs results to the console would look like this:
 
 ```bash
-node client.js config=my-package/test/teststack
+node client.js config=my-package/test/intern
 ```
 
 A more complex execution might look like this:
 
 ```bash
-node client.js config=my-package/test/teststack suites=my-package/test/request \
+node client.js config=my-package/test/intern suites=my-package/test/request \
   suites=my-package/test/animation reporters=console reporters=lcov
 ```
 
@@ -73,10 +73,10 @@ Note that when running on Windows, all command-line options must be surrounded b
 
 ## As an instrumenting proxy for generating code coverage data
 
-This execution method is useful when you want to generate raw code coverage data for use with Istanbul without needing to set up a browser testing infrastructure. It is invoked by running `node runner.js proxyOnly`. The `config` argument should be the module ID of your project’s Test Stack configuration file (typically `project-name/test/teststack`). The proxy will run indefinitely until you quit using Ctrl+C. An execution of this method would look like this:
+This execution method is useful when you want to generate raw code coverage data for use with Istanbul without needing to set up a browser testing infrastructure. It is invoked by running `node runner.js proxyOnly`. The `config` argument should be the module ID of your project’s Intern configuration file (typically `project-name/test/intern`). The proxy will run indefinitely until you quit using Ctrl+C. An execution of this method would look like this:
 
 ```bash
-node runner.js config=my-package/test/teststack proxyOnly
+node runner.js config=my-package/test/intern proxyOnly
 ```
 
 Note that because this method does not run any tests, the `suites` and `reporters` options are not applicable.
@@ -93,18 +93,18 @@ In order to use this method, you will need one of the following:
 
 This execution method is required for functional testing, as a server is required in order to drive the client browser.
 
-More information on how to configure Test Stack to work with your testing infrastructure can be found on the [Configuring Test Stack](Configuring-Test-Stack) page.
+More information on how to configure Intern to work with your testing infrastructure can be found on the [Configuring Intern](Configuring-Intern) page.
 
 A typical execution of this method would look like this:
 
 ```bash
-node runner.js config=my-package/test/teststack
+node runner.js config=my-package/test/intern
 ```
 
 A more complex execution would look like this:
 
 ```bash
-node runner.js config=my-package/test/teststack reporters=runner reporters=lcov
+node runner.js config=my-package/test/intern reporters=runner reporters=lcov
 ```
 
 ## As a test runner for continuous integration

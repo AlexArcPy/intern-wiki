@@ -1,13 +1,13 @@
-When writing JavaScript tests, it is common to write them according to a specific testing API that defines Suites, Tests, and other aspects of testing infrastructure. These testing APIs are known as **test interfaces**. Test Stack currently comes with support for 3 different test interfaces: TDD, BDD, and object. Internally, all interfaces generate the same testing structures, so you can use whichever interface you feel matches your preference and coding style. Examples of each tests using each of these interfaces can be found [below](#example-tests).
+When writing JavaScript tests, it is common to write them according to a specific testing API that defines Suites, Tests, and other aspects of testing infrastructure. These testing APIs are known as **test interfaces**. Intern currently comes with support for 3 different test interfaces: TDD, BDD, and object. Internally, all interfaces generate the same testing structures, so you can use whichever interface you feel matches your preference and coding style. Examples of each tests using each of these interfaces can be found [below](#example-tests).
 
 ## Assertions
-A test needs a way to verify some logic about the target being tested, such as whether or not a given variable is truthy. This is known as an **assertion**, and forms the basis for software testing. Test Stack supports extensible assertions via the Chai Assertion Library. The various assertion interfaces are exposed via the following modules, and should be required and used in your tests:
-* `teststack/chai!assert`
-* `teststack/chai!expect`
-* `teststack/chai!should`
+A test needs a way to verify some logic about the target being tested, such as whether or not a given variable is truthy. This is known as an **assertion**, and forms the basis for software testing. Intern supports extensible assertions via the Chai Assertion Library. The various assertion interfaces are exposed via the following modules, and should be required and used in your tests:
+* `intern/chai!assert`
+* `intern/chai!expect`
+* `intern/chai!should`
 
 ## Functional Testing
-In addition to regular unit tests, Test Stack supports a type of testing that can simulate user interaction with DOM elements, known as **functional testing**. Functional tests are slightly different from normal unit tests because they are executed remotely from the test runner,
+In addition to regular unit tests, Intern supports a type of testing that can simulate user interaction with DOM elements, known as **functional testing**. Functional tests are slightly different from normal unit tests because they are executed remotely from the test runner,
 whereas unit tests are executed directly on the browser under test. In a functional test, a `remote` object is exposed that has methods for interacting with a remote browser environment. The general flow of a functional test should be as follows:
 
 ### 1. Load an html page into the remote context.
@@ -30,7 +30,7 @@ this.get('remote')
 </pre>
 
 ### 3. Make assertions just like regular unit testing.</strong>
-Just like unit tests, functional tests support extensible assertions via the Chai Assertion Library. The various Chai interfaces are exposed via the <code>teststack/chai!assert</code>, <code>teststack/chai!expect</code>, and <code>teststack/chai!should</code> modules. See the <a href="http://chaijs.com/api/">full Chai API documentation</a> for more information. 
+Just like unit tests, functional tests support extensible assertions via the Chai Assertion Library. The various Chai interfaces are exposed via the <code>intern/chai!assert</code>, <code>intern/chai!expect</code>, and <code>intern/chai!should</code> modules. See the <a href="http://chaijs.com/api/">full Chai API documentation</a> for more information.
 <pre>
 this.get('remote')
 	.waitForElementById('result')
@@ -40,21 +40,21 @@ this.get('remote')
 	});
 </pre>
 
-See the [full Chai API documentation](http://chaijs.com/api/) for more information on each module.  
+See the [full Chai API documentation](http://chaijs.com/api/) for more information on each module.
 
 ##Example Tests
 
 ### BDD
 ```js
 define([
-	'teststack!bdd',
-	'teststack/chai!expect',
+	'intern!bdd',
+	'intern/chai!expect',
 	'../Request'
 ], function (bdd, expect, Request) {
 	with (bdd) {
 		describe('demo', function () {
 			var request,
-				url = 'https://github.com/csnover/dojo2-teststack';
+				url = 'https://github.com/theintern/intern';
 
 			// before the suite starts
 			before(function () {
@@ -118,14 +118,14 @@ define([
 ###TDD
 ```js
 define([
-	'teststack!tdd',
-	'teststack/chai!assert',
+	'intern!tdd',
+	'intern/chai!assert',
 	'../Request'
 ], function (tdd, assert, Request) {
 	with (tdd) {
 		suite('demo', function () {
 			var request,
-				url = 'https://github.com/csnover/dojo2-teststack';
+				url = 'https://github.com/theintern/intern';
 
 			// before the suite starts
 			before(function () {
@@ -189,12 +189,12 @@ define([
 ###Object
 ```js
 define([
-	'teststack!object',
-	'teststack/chai!assert',
+	'intern!object',
+	'intern/chai!assert',
 	'../Request'
 ], function (registerSuite, assert, Request) {
 	var request,
-		url = 'https://github.com/csnover/dojo2-teststack';
+		url = 'https://github.com/theintern/intern';
 
 	registerSuite({
 		name: 'demo',
@@ -255,13 +255,13 @@ define([
 ###Functional
 ```js
 define([
-	'teststack!object',
-	'teststack/chai!assert',
+	'intern!object',
+	'intern/chai!assert',
 	'../Request',
 	'require'
 ], function (registerSuite, assert, Request, require) {
 	var request,
-		url = 'https://github.com/csnover/dojo2-teststack';
+		url = 'https://github.com/theintern/intern';
 
 	registerSuite({
 		name: 'demo',

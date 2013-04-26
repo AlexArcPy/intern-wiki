@@ -1,4 +1,4 @@
-Test Stack configuration occurs through a single AMD module. If in a node.js environment, the *module identifier* of this file is specified using the `config` command-line argument; if in a browser environment, this is specified using the `config` url parameter. For an example of a working Test Stack configuration, you may look at the [Test Stack self-test configuration](../blob/master/test/teststack.js).
+Intern configuration occurs through a single AMD module. If in a node.js environment, the *module identifier* of this file is specified using the `config` command-line argument; if in a browser environment, this is specified using the `config` url parameter. For an example of a working Intern configuration, you may look at the [Intern self-test configuration](../blob/master/test/selftest.intern.js).
 
 ## Configuration Options
 
@@ -29,24 +29,26 @@ Note that version numbers must be strings if using Sauce Labs.</td>
 
 <tr>
 <th scope="row"><code>excludeInstrumentation</code><br>(none)</th>
-<td>A regular expression that matches the path-part of URLs (starting from the end of <code>proxyUrl</code>, excluding any trailing slash) that should not be instrumented during testing. Use this to exclude dependencies from being reported in your code coverage results. (Test Stack code—that is, anything that loads from <code>{{proxyUrl}}/__teststack/</code>—is always excluded from code coverage results.)<br>
+<td>A regular expression that matches the path-part of URLs (starting from the end of <code>proxyUrl</code>, excluding any trailing slash) that should not be instrumented during testing. Use this to exclude dependencies from being reported in your code coverage results. (Intern code—that is, anything that loads from <code>{{proxyUrl}}/__intern/</code>—is always excluded from code coverage results.)<br>
 <br>As an example, <code>excludeInstrumentation: /^(?:dojo|jquery|sencha)\//</code> would prevent any code in the <code>dojo</code>, <code>jquery</code>, and <code>sencha</code> packages from being included in code coverage analysis.</td>
 </tr>
 
 <tr>
 <th scope="row"><code>functionalSuites</code><br>(empty array)</th>
-<td>An array of module IDs corresponding to individual functional test suites that you want to execute when running Test Stack. Functional tests are different from unit tests because they are executed on the server, not the client, so are only available when using <code>runner.js</code>.</td>
+<td>An array of module IDs corresponding to individual functional test suites that you want to execute when running Intern. Functional tests are different from unit tests because they are executed on the server, not the client, so are only available when using <code>runner.js</code>.</td>
 </tr>
 
 <tr>
-<th scope="row"><code>loader</code><br><pre><code>{ baseUrl: teststackDir + '/..',
+<th scope="row"><code>loader</code><br><pre><code>{ baseUrl: internDir + '/..',
   packages: [
-    { name: 'teststack',
-      location: teststackDir },
-    { name: 'dojo-ts',
-      location: teststackDir + '/dojo' }
-  ] }</code></pre></th>
-<td>Configuration options for the AMD module loader. Any <a href="https://github.com/amdjs/amdjs-api/wiki/Common-Config">AMD configuration options</a> supported by the Dojo loader can be used here. Modifying <code>baseUrl</code> may break Test Stack. If you are testing an AMD application and need to use stub modules for testing, the <code>map</code> configuration option is the correct way to do this.</td>
+    { name: 'intern',
+      location: internDir }
+  ],
+  map: { intern: {
+    dojo: 'intern/dojo'
+  } }
+}</code></pre></th>
+<td>Configuration options for the AMD module loader. Any <a href="https://github.com/amdjs/amdjs-api/wiki/Common-Config">AMD configuration options</a> supported by the Dojo loader can be used here. Modifying <code>baseUrl</code> may break Intern. If you are testing an AMD application and need to use stub modules for testing, the <code>map</code> configuration option is the correct way to do this.</td>
 </tr>
 
 <tr>
@@ -66,17 +68,17 @@ Note that version numbers must be strings if using Sauce Labs.</td>
 
 <tr>
 <th scope="row"><code>reporters</code><br>'runner' or 'console'</th>
-<td>An array of reporter names (for reporters in <code>teststack/lib/reporters</code>) or complete module IDs (for custom reporters) corresponding to reporters that should be used to report test results.</td>
+<td>An array of reporter names (for reporters in <code>intern/lib/reporters</code>) or complete module IDs (for custom reporters) corresponding to reporters that should be used to report test results.</td>
 </tr>
 
 <tr>
 <th scope="row"><code>suites</code><br>(empty array)</th>
-<td>An array of module IDs corresponding to individual unit test suites that you want to execute when running Test Stack. This option can be overridden in most cases by specifying one or more <code>suites</code> options on the command-line.</td>
+<td>An array of module IDs corresponding to individual unit test suites that you want to execute when running Intern. This option can be overridden in most cases by specifying one or more <code>suites</code> options on the command-line.</td>
 </tr>
 
 <tr>
 <th scope="row"><code>useSauceConnect</code><br>true</th>
-<td>Whether or not to start Sauce Connect before running tests. This is necessary if you are using Travis CI. For quicker Test Stack runtimes, you may start Sauce Connect manually instead and set this to <code>false</code>.</td>
+<td>Whether or not to start Sauce Connect before running tests. This is necessary if you are using Travis CI. For quicker Intern runtimes, you may start Sauce Connect manually instead and set this to <code>false</code>.</td>
 </tr>
 
 <tr>
@@ -85,7 +87,7 @@ Note that version numbers must be strings if using Sauce Labs.</td>
 <td>Connection information for the remote WebDriver (a.k.a. Selenium 2) service. Available options are <code>host</code>, <code>port</code>, <code>username</code>, and <code>accessKey</code>.<br>
 <br>
 For Sauce Labs without Sauce Connect, the host should be <code>ondemand.saucelabs.com</code>.<br>
-For Sauce Connect, the host should be <code>localhost</code>. (Note that by default, Sauce Connect starts on port <strong>4445</strong> if it is not started by Test Stack with <code>useSauceConnect</code>.)<br>
+For Sauce Connect, the host should be <code>localhost</code>. (Note that by default, Sauce Connect starts on port <strong>4445</strong> if it is not started by Intern with <code>useSauceConnect</code>.)<br>
 For custom Selenium 2 or Selenium 2 Grid servers, the <code>host</code> should be the address of your server.<br>
 <br>
 <code>username</code> and <code>accessKey</code> are used by Sauce Labs only. If you do not want to expose your username and access key, put them in the <code>SAUCE_USERNAME</code> and <code>SAUCE_ACCESS_KEY</code> environment variables instead.</td>

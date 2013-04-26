@@ -1,4 +1,4 @@
-Test Stack is designed to easily integrate with the [Travis CI](http://travis-ci.org/) continuous integration service. In order to enable Travis CI for your project, you must first create a `.travis.yml` in your repository root that will load and execute Test Stack. For a typical project using Sauce Labs, it should look like this:
+Intern is designed to easily integrate with the [Travis CI](http://travis-ci.org/) continuous integration service. In order to enable Travis CI for your project, you must first create a `.travis.yml` in your repository root that will load and execute Intern. For a typical project using Sauce Labs, it should look like this:
 
 ```yaml
 language: node_js
@@ -12,10 +12,10 @@ env:
     - SAUCE_ACCESS_KEY: access-key
 install:
   - git submodule update --init --recursive
-  - git clone --recursive https://github.com/csnover/dojo2-teststack.git ../teststack
-  - cd ../teststack
+  - git clone --recursive https://github.com/theintern/intern.git
+  - cd ../intern
   - npm install --production
-script: node runner.js config=my-package/test/teststack
+script: node runner.js config=my-package/test/intern
 ```
 
 If you are not OK exposing your Sauce Labs username and access key, you may use [secure environment variables](http://about.travis-ci.org/docs/user/build-configuration/#Secure-environment-variables) to encrypt them (`travis encrypt "SAUCE_USERNAME=username SAUCE_ACCESS_KEY=access-key"`). However, this will mean that pull requests are no longer tested.
@@ -37,4 +37,4 @@ Once you have a Travis configuration, you just need to actually start the thing:
 13. Click “Save changes”
 14. Click “Test Hook”
 
-If the test hook was successful (it may take several minutes for the test hook to trigger a build), you will be able to watch Test Stack happily execute all your tests directly from the Travis CI Web site. Any time you make a new commit, or a new pull request is issued, Travis will automatically re-run your test suite. Simple!
+If the test hook was successful (it may take several minutes for the test hook to trigger a build), you will be able to watch Intern happily execute all your tests directly from the Travis CI Web site. Any time you make a new commit, or a new pull request is issued, Travis will automatically re-run your test suite. Simple!
