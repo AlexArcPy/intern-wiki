@@ -1,8 +1,10 @@
-Grunt support is built into Intern. Install Intern and load the Grunt task into your <code>Gruntfile</code> using <code>grunt.loadTasks('path/to/intern/grunt');</code>.
+Grunt support is built into Intern. Install Intern and load the Grunt task into your `Gruntfile` using `grunt.loadTasks('path/to/intern/grunt');`.
 
 An example of the Grunt Intern task is available in the [intern-examples repository](https://github.com/theintern/intern-examples/tree/master/grunt-example).
 
 ## Task Options
+
+Options available when running Intern using Grunt are the same as the [options available when running Intern directly from the command-line](Running-Tests), plus the following additional options:
 
 <table>
 <tr>
@@ -12,77 +14,43 @@ An example of the Grunt Intern task is available in the [intern-examples reposit
 
 <tr>
 <th scope="row"><code>runType</code><br>client</th>
-<td>Example: <code>"runner"</code> or <code>"client"</code></td>
+<td>The execution mode in which Intern should be run. This may be either <code>"runner"</code> for the automated test runner, or <code>"client"</code> for the Node.js client.</td>
 </tr>
 
 <tr>
-<th scope="row"><code>config</code><br></th>
-<td>Example: <code>"intern-selftest/tests/selftest.intern.js"</code></td>
+<th scope="row"><code>sauceUsername</code><br>(none)</th>
+<td>The username for authentication with Sauce Labs.</td>
 </tr>
 
 <tr>
-<th scope="row"><code>reporters</code><br></th>
-<td>Example: <code>['console', 'lcov']</code></td>
+<th scope="row"><code>sauceAccessKey</code><br>(none)</th>
+<td>The access key for authentication with Sauce Labs.</td>
 </tr>
-
-<tr>
-<th scope="row"><code>suites</code><br></th>
-<td>Example: <code>['intern-selftest/tests/all']</code></td>
-</tr>
-
-<tr>
-<th scope="row"><code>proxyOnly</code><br></th>
-<td>Example: <code>true</code></td>
-</tr>
-
-<tr>
-<th scope="row"><code>autoRun</code><br></th>
-<td>Example: <code>true</code></td>
-</tr>
-
 </table>
 
-## Configuration Examples
-
-### All Task Options
+## Gruntfile example
 
 ```js
 grunt.initConfig({
     intern: {
         someReleaseTarget: {
-            runType: 'runner',  // defaults to client,
             options: {
-                config: "intern-selftest/tests/selftest.intern.js",
-                reporters: ['console', 'lcov'],
-                suites: ['intern-selftest/tests/all'],
-                proxyOnly: true,
-                autoRun: true
+                runType: 'runner',  // defaults to client,
+                config: 'myPackage/tests/intern',
+                reporters: [ 'console', 'lcov' ],
+                suites: [ 'myPackage/tests/all' ]
             }
         },
-        anotherReleaseTarget: { ... }
+        anotherReleaseTarget: { /* ... */ }
     }
 });
-```
 
-### Full example
-
-```js
-grunt.initConfig({
-    intern: {
-        local: {
-	    options: {
-		teststackDir: './intern',
-		config: 'tests/intern.js'
-            }
-	}
-    }
-});
 // Load the Intern task
-grunt.loadTasks('./intern/grunt');
+grunt.loadTasks('../intern/grunt');
 
-// Register a test task
-grunt.registerTask('test', ['intern']);
+// Register a test task that uses Intern
+grunt.registerTask('test', [ 'intern' ]);
 
 // By default we just test
-grunt.registerTask('default', ['test']);
+grunt.registerTask('default', [ 'test' ]);
 ```
