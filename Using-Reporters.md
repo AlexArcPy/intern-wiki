@@ -1,20 +1,90 @@
-Once you’ve run a test, you need to be able to get information out of Intern into a form that is actually useful to you. Intern publishes specific information about each stage of a test run using a publish / subscribe mechanism. **Reporters** are simple modules that define methods corresponding to the topics on which information is published. These methods are automatically called throughout a test run.
+Information about the state of a test run needs to be produced in many different formats depending upon how the user wishes to consume the information. In order to faciliate this, Intern publishes specific information about each stage of a test run using a pub/sub mechanism, and registers reporters that listen for these topics and output information in the correct format.
 
-## Included Reporters
-* [console](https://github.com/theintern/intern/blob/master/lib/reporters/console.js) - outputs test pass/fail messages to the console, grouped by suite
-* [lcov](https://github.com/theintern/intern/blob/master/lib/reporters/lcov.js) - generates an <code>lcov.info</code> from collated coverage data
-* [runner](https://github.com/theintern/intern/blob/master/lib/reporters/runner.js) - outputs current state of the runner, code coverage and test results for each environment tested, and a total test result
-* [webdriver](https://github.com/theintern/intern/blob/master/lib/reporters/webdriver.js) - proxies test results from a client back to the test runner via the instrumentation proxy; also displays very basic running test output as HTML to provide improved state information when watching a test run via Sauce Labs live view
+# Included Reporters
 
-## Custom Reporters
-
-As mentioned, *Reporters* are extremely simple modules. These modules define methods with set names and they receive key information about some event during a test run. Your custom reporter can do whatever it wants with this information. See the methods that can be defined below.
-
-### Available methods
+The following reporters are included in a standard Intern installation and can be used by passing the name of the reporter to the `reporters` array:
 
 <table>
 <tr>
-<th scope="col">Method</th>
+<th scope="col">Reporter</th>
+<th scope="col">Platform</th>
+<th scope="col">Description</th>
+</tr>
+
+<tr>
+<th scope="row">console</th>
+<td>client</td>
+<td>This reporter outputs test pass/fail messages to the console, grouped by suite.</td>
+</tr>
+
+<tr>
+<th scope="row">lcov</th>
+<td>runner</td>
+<td>This reporter generates an <code>lcov.info</code> from collated coverage data.</td>
+</tr>
+
+<tr>
+<th scope="row">runner</th>
+<td>runner</td>
+<td>This reporter outputs information to the console about the current state of the runner, code coverage and test results for each environment tested, and a total test result.</td>
+</tr>
+
+<tr>
+<th scope="row">webdriver</th>
+<td>client</td>
+<td>This reporter proxies test results from a client back to the test runner via the instrumentation proxy. It also displays very basic running test output as HTML to provide improved state information when watching a test run via Sauce Labs live view.</td>
+</tr>
+</table>
+
+# Custom reporters
+
+If none of the built-in reporters provide the information you need, you can write a custom reporter and reference it using an absolute module ID (i.e. `myProject/tests/customReporter`). The reporter itself is a single JavaScript object that uses topic names as keys and functions as values:
+
+```js
+define([], function () {
+	return {
+		'/test/start': function (test) {
+			console.log(test.id + ' started');
+		},
+		'/test/end': function (test) {
+			console.log(test.id + ' ended');
+		}
+	};
+});
+```
+
+Reporters can also include optional `start` and `stop` methods for performing any additional arbitrary work when a reporter is started or stopped:
+
+```js
+define([
+	'dojo/aspect',
+	'intern/lib/Suite'
+], function (aspect, Suite) {
+	var handles = [];
+	return {
+		start: function () {
+			function augmentJsonValue() {
+				/* … */
+			}
+
+			handles.push(aspect.after(Suite.prototype, 'toJSON', augmentJsonValue));
+		},
+
+		stop: function () {
+			var handle;
+			while ((handle = handles.pop())) {
+				handle.remove();
+			}
+		}
+	}
+});
+```
+
+## Available reporter topics
+
+<table>
+<tr>
+<th scope="col">Topic</th>
 <th scope="col">Platform</th>
 <th scope="col">Parameters</th>
 <th scope="col">Description</th>
