@@ -46,7 +46,7 @@ grunt.initConfig({
 });
 
 // Load the Intern task
-grunt.loadTasks('../intern/grunt');
+grunt.loadNpmTasks('intern')
 
 // Register a test task that uses Intern
 grunt.registerTask('test', [ 'intern' ]);
