@@ -1,4 +1,4 @@
-Grunt support is built into Intern. Install Intern and load the Grunt task into your `Gruntfile` using `grunt.loadTasks('path/to/intern/grunt');`.
+Grunt support is built into Intern. Install Intern and load the Grunt task into your `Gruntfile` using `grunt.loadTasks('path/to/intern/grunt');` (Intern 1.0.0) or `grunt.loadNpmTasks('intern')` (Intern 1.1+).
 
 An example of the Grunt Intern task is available in the [intern-examples repository](https://github.com/theintern/intern-examples/tree/master/grunt-example).
 
