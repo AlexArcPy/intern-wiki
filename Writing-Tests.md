@@ -200,7 +200,7 @@ define([
 		name: 'demo',
 
 		// before the suite starts
-		before: function () {
+		setup: function () {
 			request = new Request();
 		},
 
@@ -210,7 +210,7 @@ define([
 		},
 
 		// after the suite is done
-		after: function () {
+		teardown: function () {
 			request.cleanup();
 
 			if (!request.cleaned) {
