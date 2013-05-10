@@ -1,4 +1,4 @@
-Intern configuration occurs through a single AMD module. If in a node.js environment, the *module identifier* of this file is specified using the `config` command-line argument; if in a browser environment, this is specified using the `config` url parameter. For an example of a working Intern configuration, you may look at the [Intern self-test configuration](../blob/master/test/selftest.intern.js).
+Intern configuration occurs through a single AMD module. If in a node.js environment, the *module identifier* of this file is specified using the `config` command-line argument; if in a browser environment, this is specified using the `config` url parameter. For an example of a working Intern configuration, you may look at the included [example configuration file](https://github.com/theintern/intern/blob/master/tests/example.intern.js).
 
 ## Configuration Options
 
