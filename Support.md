@@ -1,7 +1,7 @@
 # Channels
 
 * [Submit a bug](https://github.com/theintern/intern)
-* [Community mailing list](http://mail.dojotoolkit.org/mailman/listinfo/dojo-interest)
+* [Community support](http://stackoverflow.com/questions/ask?tags=intern)
 * [Commercial support](http://www.sitepen.com)
 
 # Contributing
