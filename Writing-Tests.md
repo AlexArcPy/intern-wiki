@@ -42,7 +42,33 @@ this.get('remote')
 
 See the [full Chai API documentation](http://chaijs.com/api/) for more information on each module.
 
-##Example Tests
+## Testing non-AMD code
+
+*New in Version 1.1*
+
+If you are attempting to test non-AMD code that is split across multiple JavaScript files which must be loaded in a specific order, use the `intern/order` plugin instead of specifying those files as direct dependencies in order to ensure they load correctly:
+
+```js
+define([
+	'intern!object',
+	'intern/chai!assert',
+	'intern/order!../jquery.js',
+	'intern/order!../plugin.jquery.js'
+], function (registerSuite, assert) {
+	registerSuite({
+		name: 'plugin.jquery.js',
+
+		'basic tests': function () {
+			jQuery('<div>').plugin();
+			// ...
+		}
+	});
+});
+```
+
+(Of course, it is strongly recommended that you upgrade your code to use AMD so that this is not necessary.)
+
+## Example Tests
 
 ### BDD
 ```js
