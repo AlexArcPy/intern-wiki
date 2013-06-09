@@ -1,4 +1,4 @@
-Grunt support is built into Intern. Install Intern and load the Grunt task into your `Gruntfile` using `grunt.loadTasks('path/to/intern/grunt');` (Intern 1.0.0) or `grunt.loadNpmTasks('intern')` (Intern 1.1+).
+Grunt support is built into Intern. Install Intern and load the Grunt task into your `Gruntfile` using `grunt.loadTasks('path/to/intern/grunt');` (Intern 1.0) or `grunt.loadNpmTasks('intern')` (Intern 1.1+).
 
 An example of the Grunt Intern task is available in the [intern-examples repository](https://github.com/theintern/intern-examples/tree/master/grunt-example).
 
@@ -35,8 +35,8 @@ grunt.initConfig({
     intern: {
         someReleaseTarget: {
             options: {
-                runType: 'runner',  // defaults to client,
-                config: 'myPackage/tests/intern',
+                runType: 'runner', // defaults to 'client'
+                config: 'tests/intern',
                 reporters: [ 'console', 'lcov' ],
                 suites: [ 'myPackage/tests/all' ]
             }
@@ -46,7 +46,7 @@ grunt.initConfig({
 });
 
 // Load the Intern task
-grunt.loadNpmTasks('intern')
+grunt.loadNpmTasks('intern');
 
 // Register a test task that uses Intern
 grunt.registerTask('test', [ 'intern' ]);
