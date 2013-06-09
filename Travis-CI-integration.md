@@ -10,12 +10,14 @@ env:
     # please get your own free key if you want to test yourself
     - SAUCE_USERNAME: username
     - SAUCE_ACCESS_KEY: access-key
+# This extra install section is only necessary if your project has already installed AMD dependencies like Dojo using
+# npm, since AMD path resolution does not follow Node.js path resolution rules but npm does not know this
 install:
-  - git submodule update --init --recursive
-  - git clone --recursive https://github.com/theintern/intern.git
-  - cd ../intern
+  - npm install
+  - cd node_modules/intern
   - npm install --production
-script: node runner.js config=my-package/test/intern
+  - cd ../..
+script: node node_modules/intern/runner.js config=tests/intern
 ```
 
 If you are not OK exposing your Sauce Labs username and access key, you may use [secure environment variables](http://about.travis-ci.org/docs/user/build-configuration/#Secure-environment-variables) to encrypt them (`travis encrypt "SAUCE_USERNAME=username SAUCE_ACCESS_KEY=access-key"`). However, this will mean that pull requests are no longer tested.
