@@ -39,7 +39,7 @@ Note that version numbers must be strings if using Sauce Labs.</td>
 </tr>
 
 <tr>
-<th scope="row"><code>loader</code><br><pre><code>{ baseUrl: internDir + '/../..',
+<th scope="row"><code>loader</code><br><pre><code>{ baseUrl: internDir + '../../',
   packages: [
     { name: 'intern',
       location: internDir }
