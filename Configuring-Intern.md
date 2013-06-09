@@ -39,13 +39,14 @@ Note that version numbers must be strings if using Sauce Labs.</td>
 </tr>
 
 <tr>
-<th scope="row"><code>loader</code><br><pre><code>{ baseUrl: internDir + '/..',
+<th scope="row"><code>loader</code><br><pre><code>{ baseUrl: internDir + '/../..',
   packages: [
     { name: 'intern',
       location: internDir }
   ],
   map: { intern: {
-    dojo: 'intern/dojo'
+    dojo: 'intern/node_modules/dojo',
+    chai: 'intern/node_modules/chai/chai'
   } }
 }</code></pre></th>
 <td>Configuration options for the AMD module loader. Any <a href="https://github.com/amdjs/amdjs-api/wiki/Common-Config">AMD configuration options</a> supported by the Dojo loader can be used here. Modifying <code>baseUrl</code> may break Intern. If you are testing an AMD application and need to use stub modules for testing, the <code>map</code> configuration option is the correct way to do this.</td>
