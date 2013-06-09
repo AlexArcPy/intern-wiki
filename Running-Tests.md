@@ -41,17 +41,17 @@ There are several different ways to actually use Intern, depending upon your nee
 
 ## As a stand-alone browser client
 
-This execution method is useful when you are in the process of writing unit tests that require a browser and you need to quickly check to make sure that they are actually working. It is invoked by navigating directly to `client.html`. The `config` argument should be the module ID of your project’s Intern configuration file (typically `project-name/test/intern`). One or more `suites` and `reporters` arguments may also be used. A typical execution that runs all tests and outputs results to the Web console would look like this:
+This execution method is useful when you are in the process of writing unit tests that require a browser and you need to quickly check to make sure that they are actually working. It is invoked by navigating directly to `client.html`. The `config` argument should be the module ID of your project’s Intern configuration file (typically `tests/intern`). One or more `suites` and `reporters` arguments may also be used. A typical execution that runs all tests and outputs results to the Web console would look like this:
 
 ```text
-http://localhost/intern/client.html?config=my-package/test/intern
+http://localhost/my-project/node_modules/intern/client.html?config=tests/intern
 ```
 
 A more complex execution might look like this:
 
 ```text
-http://localhost/intern/client.html?config=my-package/test/intern&suites=my-package/test/request
-&suites=my-package/test/animation&reporters=console&reporters=html
+http://localhost/my-project/node_modules/intern/client.html?config=tests/intern&suites=my-package/tests/request
+&suites=my-package/tests/animation&reporters=console&reporters=html
 ```
 
 ## As a stand-alone Node.js client
@@ -59,24 +59,24 @@ http://localhost/intern/client.html?config=my-package/test/intern&suites=my-pack
 This execution method is useful when you are in the process of writing unit tests that do not require a browser and you want to quickly check to make sure that they are actually working. It is invoked by running `node client.js`. The command-line arguments for `client.js` are identical to the URL arguments for running a stand-alone browser client. A typical execution that runs all tests and outputs results to the console would look like this:
 
 ```bash
-node client.js config=my-package/test/intern
+node my-project/node_modules/intern/client.js config=tests/intern
 ```
 
 A more complex execution might look like this:
 
 ```bash
-node client.js config=my-package/test/intern suites=my-package/test/request \
-  suites=my-package/test/animation reporters=console reporters=lcov
+node my-project/node_modules/intern/client.js config=tests/intern suites=my-package/tests/request \
+  suites=my-package/tests/animation reporters=console reporters=lcov
 ```
 
 Note that when running on Windows, all command-line options must be surrounded by quotes.
 
 ## As an instrumenting proxy for generating code coverage data
 
-This execution method is useful when you want to generate raw code coverage data for use with Istanbul without needing to set up a browser testing infrastructure. It is invoked by running `node runner.js proxyOnly`. The `config` argument should be the module ID of your project’s Intern configuration file (typically `project-name/test/intern`). The proxy will run indefinitely until you quit using Ctrl+C. An execution of this method would look like this:
+This execution method is useful when you want to generate raw code coverage data for use with Istanbul without needing to set up a browser testing infrastructure. It is invoked by running `node runner.js proxyOnly`. The `config` argument should be the module ID of your project’s Intern configuration file (typically `tests/intern`). The proxy will run indefinitely until you quit using Ctrl+C. An execution of this method would look like this:
 
 ```bash
-node runner.js config=my-package/test/intern proxyOnly
+node my-project/node_modules/intern/runner.js config=tests/intern proxyOnly
 ```
 
 Note that because this method does not run any tests, the `suites` and `reporters` options are not applicable.
@@ -98,13 +98,13 @@ More information on how to configure Intern to work with your testing infrastruc
 A typical execution of this method would look like this:
 
 ```bash
-node runner.js config=my-package/test/intern
+node my-project/node_modules/intern/runner.js config=tests/intern
 ```
 
 A more complex execution would look like this:
 
 ```bash
-node runner.js config=my-package/test/intern reporters=runner reporters=lcov
+node my-project/node_modules/intern/runner.js config=tests/intern reporters=runner reporters=lcov
 ```
 
 ## As a test runner for continuous integration
