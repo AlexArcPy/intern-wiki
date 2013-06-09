@@ -47,7 +47,7 @@ define([
 });
 ```
 
-In this example, an XHR call is performed. When the call is completed successfully, the data is checked to make sure it is correct. If the data is correct, `dfd` will be resolved; otherwise, it will be rejected. If the call fails, `dfd.reject` is called.
+In this example, an XHR call is performed. When the call is completed successfully, the data is checked to make sure it is correct. If the data is correct, `dfd` will be resolved; otherwise, it will be rejected (because `assert.strictEqual` will throw an error). If the call fails, `dfd.reject` is called.
 
 ## Functional Testing
 
