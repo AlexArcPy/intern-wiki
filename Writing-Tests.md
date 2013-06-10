@@ -8,7 +8,7 @@ A test needs a way to verify some logic about the target being tested, such as w
 * `intern/chai!should`
 
 
-## Asynchronous Testing
+## Asynchronous testing
 
 Asynchronous testing in Intern is based on promises. You may either return a promise from a test function (convenient for interfaces that already support promises) or call `this.async` from within a test function to enable asynchronous testing.
 
@@ -49,7 +49,7 @@ define([
 
 In this example, an XHR call is performed. When the call is completed successfully, the data is checked to make sure it is correct. If the data is correct, `dfd` will be resolved; otherwise, it will be rejected (because `assert.strictEqual` will throw an error). If the call fails, `dfd.reject` is called.
 
-## Functional Testing
+## Functional testing
 
 In addition to regular unit tests, Intern supports a type of testing that can simulate user interaction with DOM elements, known as **functional testing**. Functional tests are slightly different from normal unit tests because they are executed remotely from the test runner,
 whereas unit tests are executed directly on the browser under test. In a functional test, a `remote` object is exposed that has methods for interacting with a remote browser environment. The general flow of a functional test should be as follows:
@@ -111,6 +111,8 @@ define([
 ```
 
 (Of course, it is strongly recommended that you upgrade your code to use AMD so that this is not necessary.)
+
+You can also try [use.js](https://github.com/tbranyen/use.js).
 
 ## Example Tests
 
