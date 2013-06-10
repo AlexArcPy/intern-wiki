@@ -110,9 +110,9 @@ define([
 });
 ```
 
-(Of course, it is strongly recommended that you upgrade your code to use AMD so that this is not necessary.)
-
 You can also try [use.js](https://github.com/tbranyen/use.js).
+
+(Of course, it is strongly recommended that you upgrade your code to use AMD so that this is not necessary.)
 
 ## Example Tests
 
