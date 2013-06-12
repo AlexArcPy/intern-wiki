@@ -88,6 +88,29 @@ See the [full Chai API documentation](http://chaijs.com/api/) for more informati
 
 ## Testing non-AMD code
 
+### CommonJS code
+
+CommonJS code, including Node.js built-ins, can be loaded as an AMD dependency from within Node.js using the `dojo/node` AMD plugin that comes with Intern:
+
+```js
+define([
+	'intern!object',
+	'intern/chai!assert',
+	'intern/node_modules/dojo/node!path'
+], function (registerSuite, assert, path) {
+	registerSuite({
+		name: 'path',
+
+		'basic tests': function () {
+			path.join('a', 'b');
+			// ...
+		}
+	});
+});
+```
+
+### Browser code
+
 *New in Version 1.1*
 
 If you are attempting to test non-AMD code that is split across multiple JavaScript files which must be loaded in a specific order, use the `intern/order` plugin instead of specifying those files as direct dependencies in order to ensure they load correctly:
