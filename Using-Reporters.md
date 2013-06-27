@@ -32,7 +32,7 @@ The following reporters are included in a standard Intern installation and can b
 <tr>
 <th scope="row">webdriver</th>
 <td>client</td>
-<td>This reporter proxies test results from a client back to the test runner via the instrumentation proxy. It also displays very basic running test output as HTML to provide improved state information when watching a test run via Sauce Labs live view.</td>
+<td>This reporter proxies test results from a client back to the test runner via the instrumentation proxy. It also displays very basic running test output as HTML to provide improved state information when watching a test run via Sauce Labs live view. This reporter is used automatically when the test runner runs unit tests in a browser and should typically never be specified directly.</td>
 </tr>
 </table>
 
