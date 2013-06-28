@@ -57,7 +57,7 @@ whereas unit tests are executed directly on the browser under test. In a functio
 ### 1. Load an html page into the remote context.
 Because the actual test code isn't exposed to this remote client at all, this html page should <u>include script tags for all necessary JavaScript</u>. Note that if the functional test needs to explicitly wait for certain widgets or elements on this html page to be rendered (or some other condition) before proceeding, the <code>waitForCondition</code> method can be used. This method waits until a global variable becomes truthy before continuing with execution, and errors out if an optional timeout is exceeded.
 <pre>
-this.get('remote')
+this.remote
 	.get(require.toUrl('./SomeTest.html'))
 	.waitForCondition('ready', 5000);
 </pre>
@@ -65,7 +65,7 @@ this.get('remote')
 ### 2. Use the methods available on the <code>remote</code> object to interact with the remote context.
 The <code>remote</code> object corresponds to the standard <a href="http://www.w3.org/TR/webdriver/">WebDriver API</a> with a fluid, promises-wrapped <a href="https://github.com/admc/wd">WD.js</a>. See <a href="https://github.com/admc/wd#supported-methods">this link</a> for all methods available for functional testing.
 <pre>
-this.get('remote')
+this.remote
 	.get(require.toUrl('./fixture.html'))
 	.elementById('operation')
 		.click()
@@ -76,7 +76,7 @@ this.get('remote')
 ### 3. Make assertions just like regular unit testing.</strong>
 Just like unit tests, functional tests support extensible assertions via the Chai Assertion Library. The various Chai interfaces are exposed via the <code>intern/chai!assert</code>, <code>intern/chai!expect</code>, and <code>intern/chai!should</code> modules. See the <a href="http://chaijs.com/api/">full Chai API documentation</a> for more information.
 <pre>
-this.get('remote')
+this.remote
 	.waitForElementById('result')
 	.text()
 	.then(function (resultText) {
