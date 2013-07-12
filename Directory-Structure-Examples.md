@@ -44,7 +44,7 @@ When integrating Intern with an existing project, or when starting a new project
        depA/
      node_modules/
        intern/
-    ```
+   ```
 
 4. Intern installed globally, referenced as symlink from the root
 
