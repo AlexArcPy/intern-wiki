@@ -23,7 +23,7 @@ The following are valid directory structures for use with Intern:
        intern/
    ```
 
-(or)
+   (or)
 
    ```
    /
