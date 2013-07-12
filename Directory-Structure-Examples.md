@@ -1,6 +1,6 @@
 When integrating Intern with an existing project, or when starting a new project, it’s useful to understand which directory structures are suitable for use with Intern and which structures will need to be modified to conform to the way Intern works. The only structural restriction is that the entire project, including all dependencies, need to be accessible from the directory located two levels above the Intern directory.
 
-The following are valid directory structures for use with Intern:
+## Valid structures
 
 1. Entire application in root directory, Intern installed in root
 
@@ -12,7 +12,7 @@ The following are valid directory structures for use with Intern:
        intern/
    ```
 
-2. Application in subdirectory of root directory, Intern installed in root
+2. Application & dependencies in subdirectory of root directory, Intern installed in root
 
    ```
    /
@@ -35,7 +35,18 @@ The following are valid directory structures for use with Intern:
        intern/
    ```
 
-3. Intern installed globally, referenced as symlink
+3. Application in root, dependencies in a subdirectory, Intern installed in root
+
+   ```
+   /
+     app/
+     bower_components/
+       depA/
+     node_modules/
+       intern/
+    ```
+
+4. Intern installed globally, referenced as symlink from the root
 
    ```
    /
@@ -45,9 +56,9 @@ The following are valid directory structures for use with Intern:
        intern/ -> /usr/local/lib/nodejs/node_modules/intern
    ```
 
-The following would *not* be a valid directory structure:
+## Invalid structures
 
-1. Intern installed inside application directory, dependencies outside application directory
+1. Intern installed inside application directory, dependencies siblings of the application directory
 
    ```
    /
@@ -57,13 +68,12 @@ The following would *not* be a valid directory structure:
      depA/
    ```
 
-2. Intern installed in subdirectory that is a sibling of the project
+2. Application in root, Intern installed inside a subdirectory
 
    ```
    /
-     project/
-       app/
-       depA/
+     app/
+     depA/
      support/
        node_modules/
          intern/
