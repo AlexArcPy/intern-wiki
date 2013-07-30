@@ -8,7 +8,7 @@ Intern configuration occurs through a single AMD module. If in a node.js environ
 </tr>
 
 <tr>
-<th scope="row"><code>capabilities</code><br>(empty object)</th>
+<th scope="row"><code>capabilities</code><br><pre><code>{ 'idle-timeout': 60 }</code></pre></th>
 <td>The default desired capabilities for all environments being tested. These capabilities can be overridden per-environment in the <code>environments</code> array. See <a href="https://code.google.com/p/selenium/wiki/DesiredCapabilities">Selenium DesiredCapabilities</a> for standard Selenium capabilities and <a href="https://saucelabs.com/docs/additional-config#desired-capabilities">Sauce Labs Additional Configuration</a> for Sauce Labs capabilities. The <code>build</code> capability will be filled in with the current commit ID from the <code>TRAVIS_COMMIT</code> environment variable automatically, if it exists.</td>
 </tr>
 
