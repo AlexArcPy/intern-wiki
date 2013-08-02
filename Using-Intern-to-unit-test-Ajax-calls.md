@@ -34,7 +34,7 @@ An nginx configuration implementing this pattern might look like this:
 ```nginx
 server {
   server_name proxy.example;
-  root /var/www;
+  root /var/www/;
 
   location /js/ {
     proxy_pass http://localhost:9000;
