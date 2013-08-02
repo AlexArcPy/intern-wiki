@@ -12,6 +12,8 @@ An nginx configuration implementing this pattern might look like this:
 
 ```nginx
 server {
+  server_name proxy.example;
+
   location /web-service/ {
     proxy_pass http://www.web-service.example;
   }
@@ -31,12 +33,19 @@ An nginx configuration implementing this pattern might look like this:
 
 ```nginx
 server {
+  server_name proxy.example;
+  root /var/www;
+
   location /js/ {
     proxy_pass http://localhost:9000;
   }
 
   location /__intern/ {
     proxy_pass http://localhost:9000;
+  }
+
+  location / {
+    try_files $uri $uri/ =404;
   }
 }
 ```
