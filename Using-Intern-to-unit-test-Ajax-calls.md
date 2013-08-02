@@ -11,7 +11,7 @@ When writing unit tests with Intern, occasionally you will need to interact with
 ## Option 2: Only JavaScript traffic to Intern
 
 1. Modify the `proxyUrl` in your Intern configuration to point to the URL where the Web server lives
-2. Set up the Web server to reverse proxy to `http://localhost:9000/` for the special `/__intern` location, plus any directories that contain JavaScript
+2. Set up the Web server to reverse proxy to `http://localhost:9000/` for the special `/__intern/` location, plus any directories that contain JavaScript
 
 Reverse proxy configuration information for common Web servers:
 
