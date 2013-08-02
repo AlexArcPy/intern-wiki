@@ -1,4 +1,6 @@
-When writing unit tests with Intern, occasionally you will need to interact with a Web service using XMLHttpRequest. However, because the test runner serves code from port 9000, any cross-origin requests will fail. In order to test Ajax requests that require same-origin, the solution is to set up a reverse proxy to Intern and tell the test runner to load from that URL instead. You can either set up the Web server to only send requests to Intern for your JavaScript files, or you can set up the Web server to send all requests to Intern except for the Web services you’re trying to access.
+When writing unit tests with Intern, occasionally you will need to interact with a Web service using XMLHttpRequest. However, because the test runner serves code `localhost:9000` by default, any cross-origin requests will fail. In order to test Ajax requests without using CORS or JSONP, the solution is to set up a reverse proxy to Intern and tell the test runner to load from that URL instead. You can either set up the Web server to only send requests to Intern for your JavaScript files, or you can set up the Web server to send all requests to Intern except for the Web services you’re trying to access.
+
+---
 
 ### All traffic to Intern
 
