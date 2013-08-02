@@ -15,6 +15,9 @@ server {
   server_name proxy.example;
 
   location /web-service/ {
+    # This will proxy to http://www.web-service.example/web-service/<rest of url>;
+    # use `proxy_pass http://www.web-service.example/` to proxy to
+    # http://www.web-service.example/<rest of url> instead
     proxy_pass http://www.web-service.example;
   }
 
