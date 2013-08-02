@@ -2,16 +2,44 @@ When writing unit tests with Intern, occasionally you will need to interact with
 
 ---
 
-## Option 1: All traffic to Intern
+## Option 1: All traffic except Web services to Intern
 
 1. Modify the `proxyUrl` in your Intern configuration to point to the URL where the Web server lives
 2. Set up the Web server to reverse proxy to `http://localhost:9000/` by default
 3. Add location directives to pass the more specific Web service URLs to the Web service instead
 
+An nginx configuration implementing this pattern might look like this:
+
+```nginx
+server {
+  location /web-service/ {
+    proxy_pass http://www.web-service.example;
+  }
+
+  location / {
+    proxy_pass http://localhost:9000;
+  }
+}
+```
+
 ## Option 2: Only JavaScript traffic to Intern
 
 1. Modify the `proxyUrl` in your Intern configuration to point to the URL where the Web server lives
 2. Set up the Web server to reverse proxy to `http://localhost:9000/` for the special `/__intern/` location, plus any directories that contain JavaScript
+
+An nginx configuration implementing this pattern might look like this:
+
+```nginx
+server {
+  location /js/ {
+    proxy_pass http://localhost:9000;
+  }
+
+  location /__intern/ {
+    proxy_pass http://localhost:9000;
+  }
+}
+```
 
 Reverse proxy configuration information for common Web servers:
 
