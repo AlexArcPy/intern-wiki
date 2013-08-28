@@ -45,7 +45,7 @@ Travis-CI will warn you later if you’ve done something dumb, but do you really
 
 ### *Never* merge to master when landing a PR
 
-Whenever landing a PR, always use `--squash --author="Original Author <foo@example.com>"` instead allowing a merge or fast-forward. **NEVER** allow a merge commit to be introduced to the master branch. **ALWAYS** make sure discrete features are committed in a single commit. Or else.
+Whenever landing a PR, always use `git pull https://github.com/cool-person/intern.git branch-name --squash --author="Original Author <foo@example.com>"` instead allowing a merge or fast-forward. **NEVER** allow a merge commit to be introduced to the master branch. **ALWAYS** make sure discrete features are committed in a single commit. Or else.
 
 ### *Always* merge to geezer when landing a PR
 
