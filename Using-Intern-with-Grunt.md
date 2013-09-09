@@ -32,7 +32,7 @@ Options available when running Intern using Grunt are the same as the [options a
 
 *Added in Intern 1.3*
 
-The current Grunt events are rudimentary and do not provide great detail into the actual state of the test runner to Grunt tasks. Future versions of Intern are likely to improve to provide first-class event support, if sufficient demand exists for this feature.
+The current Grunt events are rudimentary, based on the output of the default `console` reporter, and do not provide much detail into the actual state of the test runner to Grunt tasks. Future versions of Intern are likely to improve to provide first-class event support, if sufficient demand exists for this feature.
 
 <table>
 <tr>
