@@ -2,7 +2,7 @@ Grunt support is built into Intern. Install Intern and load the Grunt task into 
 
 An example of the Grunt Intern task is available in the [intern-examples repository](https://github.com/theintern/intern-examples/tree/master/grunt-example).
 
-### Task Options
+## Task Options
 
 Options available when running Intern using Grunt are the same as the [options available when running Intern directly from the command-line](Running-Tests), plus the following additional options:
 
@@ -28,7 +28,7 @@ Options available when running Intern using Grunt are the same as the [options a
 </tr>
 </table>
 
-### Events
+## Events
 
 *Added in Intern 1.3*
 
@@ -54,7 +54,7 @@ The current Grunt events are rudimentary, based on the output of the default `co
 </tr>
 </table>
 
-### Gruntfile example
+## Gruntfile example
 
 ```js
 grunt.initConfig({
