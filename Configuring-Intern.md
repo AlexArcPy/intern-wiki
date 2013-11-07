@@ -39,7 +39,11 @@ Note that version numbers must be strings if using Sauce Labs.</td>
 </tr>
 
 <tr>
-<th scope="row"><code>loader</code><br><pre><code>{ baseUrl: internDir + '../../',
+<th scope="row"><code>loader</code><br><pre><code>
+Default baseUrl on Node.js is `process.cwd()`
+Default baseUrl in browser is `internDir + '../../'`
+
+{ baseUrl: baseUrl,
   packages: [
     { name: 'intern',
       location: internDir }
@@ -47,9 +51,16 @@ Note that version numbers must be strings if using Sauce Labs.</td>
   map: { intern: {
     dojo: 'intern/node_modules/dojo',
     chai: 'intern/node_modules/chai/chai'
+  }, '*': {
+    'intern/dojo': 'intern/node_modules/dojo'
   } }
 }</code></pre></th>
-<td>Configuration options for the AMD module loader. Any <a href="https://github.com/amdjs/amdjs-api/wiki/Common-Config">AMD configuration options</a> supported by the Dojo loader can be used here. Modifying <code>baseUrl</code> may break Intern. If you are testing an AMD application and need to use stub modules for testing, the <code>map</code> configuration option is the correct way to do this.</td>
+<td>Configuration options for the AMD module loader. Any <a href="https://github.com/amdjs/amdjs-api/wiki/Common-Config">AMD configuration options</a> supported by the Dojo loader can be used here. If you are testing an AMD application and need to use stub modules for testing, the <code>map</code> configuration option is the correct way to do this.</td>
+</tr>
+
+<tr>
+<th scope="row"><code>loaderUrl</code><br>node_modules/dojo/dojo.js</th>
+<td><i>New in Intern 1.3.</i> If you want to use an alternative AMD loader like RequireJS within client.html, provide the path to the alternative loader here. The loader must expose itself as a global <code>require</code> function, must support configuration through <code>require.config</code>, and must support the <code>baseUrl</code>, <code>map</code>, and <code>packages</code> configuration options.</td>
 </tr>
 
 <tr>
