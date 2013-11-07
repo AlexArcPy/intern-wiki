@@ -60,7 +60,9 @@ Default baseUrl in browser is `internDir + '../../'`
 
 <tr>
 <th scope="row"><code>loaderUrl</code><br>node_modules/dojo/dojo.js</th>
-<td><i>New in Intern 1.3.</i> If you want to use an alternative AMD loader like RequireJS within client.html, provide the path to the alternative loader here. The loader must expose itself as a global <code>require</code> function, must support configuration through <code>require.config</code>, and must support the <code>baseUrl</code>, <code>map</code>, and <code>packages</code> configuration options.</td>
+<td><i>New in Intern 1.3.</i> If you want to use an alternative AMD loader like RequireJS within client.html, provide the path to the alternative loader here, relative to the Intern directory. The loader must expose itself as a global <code>require</code> function, must support configuration through <code>require.config</code>, and must support the <code>baseUrl</code>, <code>map</code>, and <code>packages</code> configuration options.<br>
+<br>
+Loaders from third party CDNs may be used, but you must modify client.html and set the <code>allowXss</code> variable to true. Be aware that doing this enables arbitrary code injection, so don’t use this on a public-facing site.</td>
 </tr>
 
 <tr>
