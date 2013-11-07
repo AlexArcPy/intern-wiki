@@ -18,13 +18,13 @@ The following arguments can be used when running Intern:
 <tr>
 <th scope="row"><code>baseUrl</code></th>
 <td>Yes</td>
-<td><i>New in Intern 1.3.</i> The module ID of the configuration file that should be used when running Intern. The module ID will be resolved relative to the current working directory in Node.js, and relative to the <code>baseUrl</code> option in the browser (which defaults to two levels above the Intern directory).</td>
+<td><i>New in Intern 1.3.</i> The base URL of the entire application being tested. Defaults to two levels above the Intern directory.</td>
 <td>browser</td>
 </tr>
 <tr>
 <th scope="row"><code>config</code></th>
 <td>No</td>
-<td>The module ID of the configuration file that should be used when running Intern. The module ID will be resolved relative to the current working directory in Node.js, and relative to the <code>baseUrl</code> option in the browser (which defaults to two levels above the Intern directory).</td>
+<td>The module ID of the configuration file that should be used when running Intern. The module ID will be resolved relative to the current working directory in Node.js, and relative to the <code>baseUrl</code> option in the browser.</td>
 <td>browser, cli</td>
 </tr>
 <tr>
