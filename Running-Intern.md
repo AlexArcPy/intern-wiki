@@ -31,7 +31,7 @@ The following arguments can be used when running Intern:
 <th scope="row"><code>loader</code></th>
 <td>Yes</td>
 <td><i>New in Intern 1.3.</i> Specify an alternative AMD loader to use with Node.js instead of the default AMD loader. For RequireJS, this will be <code>loader=requirejs</code>. Defaults to the included Dojo AMD loader.</td>
-<td>Node.js</td>
+<td>cli</td>
 </tr>
 <tr>
 <th scope="row"><code>loaderUrl</code></th>
