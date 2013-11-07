@@ -1,4 +1,4 @@
-Running Intern is straightforward. The only real requirement is that the package you are testing should be a sibling of the Intern package.
+Running Intern is straightforward.
 
 The following arguments can be used when running Intern:
 
@@ -7,31 +7,55 @@ The following arguments can be used when running Intern:
 <th scope="col">Argument</th>
 <th>Optional?</th>
 <th>Description</th>
-</tr>
-<tr>
-<th scope="row"><code>config</code></th>
-<td>No</td>
-<td>The module ID of the configuration file that should be used when running Intern.</td>
-</tr>
-<tr>
-<th scope="row"><code>suites</code></th>
-<td>Yes</td>
-<td>One or more module IDs that should be tested in lieu of the full list of suites in the configuration file. To specify multiple suites, simply provide the <code>suites</code> argument multiple times.</td>
-</tr>
-<tr>
-<th scope="row"><code>reporters</code></th>
-<td>Yes</td>
-<td>One or more reporters that should be used in lieu of the reporters listed in the configuration file. To specify multiple reporters, simply provide the <code>reporters</code> argument multiple times.</td>
-</tr>
-<tr>
-<th scope="row"><code>proxyOnly</code></th>
-<td>Yes</td>
-<td>When using <code>runner.js</code>, the <code>proxyOnly</code> argument may be provided. This causes the runner to start the instrumenting proxy but perform no other work, so you can load instrumented tests by manually navigating to <code>{{proxyUrl}}/__intern/client.html</code>.</td>
+<th>Environment</th>
 </tr>
 <tr>
 <th scope="row"><code>autoRun</code></th>
 <td>Yes</td>
 <td>When set to <code>false</code>, tests will not start running automatically after they are all loaded. Otherwise, if <code>true</code> or left undefined, tests will start running automatically.</td>
+<td>browser, cli</td>
+</tr>
+<tr>
+<th scope="row"><code>baseUrl</code></th>
+<td>Yes</td>
+<td><i>New in Intern 1.3.</i> The module ID of the configuration file that should be used when running Intern. The module ID will be resolved relative to the current working directory in Node.js, and relative to the <code>baseUrl</code> option in the browser (which defaults to two levels above the Intern directory).</td>
+<td>browser</td>
+</tr>
+<tr>
+<th scope="row"><code>config</code></th>
+<td>No</td>
+<td>The module ID of the configuration file that should be used when running Intern. The module ID will be resolved relative to the current working directory in Node.js, and relative to the <code>baseUrl</code> option in the browser (which defaults to two levels above the Intern directory).</td>
+<td>browser, cli</td>
+</tr>
+<tr>
+<th scope="row"><code>loader</code></th>
+<td>Yes</td>
+<td><i>New in Intern 1.3.</i> Specify an alternative AMD loader to use within Node.js instead of the default AMD loader. For RequireJS, this will be <code>loader=requirejs</code>.</td>
+<td>Node.js</td>
+</tr>
+<tr>
+<th scope="row"><code>loaderUrl</code></th>
+<td>Yes</td>
+<td><i>New in Intern 1.3.</i> Specify an alternative AMD loader to use within the browser instead of the default AMD loader. The path should be relative to the <code>baseUrl</code> argument (<em>not</em> the <code>loader.baseUrl</code> configuration option; the configuration file is not loaded at the time <code>loaderUrl</code> is used).</td>
+<td>browser</td>
+</tr>
+<tr>
+<th scope="row"><code>proxyOnly</code></th>
+<td>Yes</td>
+<td>When using <code>runner.js</code>, the <code>proxyOnly</code> argument may be provided. This causes the runner to start the instrumenting proxy but perform no other work, so you can load instrumented tests by manually navigating to <code>{{proxyUrl}}/__intern/client.html</code>.</td>
+<td>cli</td>
+</tr>
+<tr>
+<th scope="row"><code>reporters</code></th>
+<td>Yes</td>
+<td>One or more reporters that should be used in lieu of the reporters listed in the configuration file. To specify multiple reporters, simply provide the <code>reporters</code> argument multiple times.</td>
+<td>browser, cli</td>
+</tr>
+<tr>
+<th scope="row"><code>suites</code></th>
+<td>Yes</td>
+<td>One or more module IDs that should be tested in lieu of the full list of suites in the configuration file. To specify multiple suites, simply provide the <code>suites</code> argument multiple times.</td>
+<td>browser, cli</td>
 </tr>
 </table>
 
