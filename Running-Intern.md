@@ -1,4 +1,4 @@
-Running Intern is straightforward. You may simply execute the included `bin/intern-client` or `bin/intern-runner` scripts, or use the [[Grunt task|Using Intern with Grunt]].
+Running Intern is straightforward. You may simply execute the included `bin/intern-client` or `bin/intern-runner` scripts *(Intern 1.3)*, or use the [[Grunt task|Using Intern with Grunt]].
 
 The following arguments can be used when running Intern:
 
