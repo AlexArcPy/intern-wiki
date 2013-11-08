@@ -1,4 +1,6 @@
-Intern allows client.html/client.js to be used with alternative AMD loaders. This is useful in the case that you are using a specific feature that only exists in a particular loader (most commonly, RequireJS’s `shim` functionality, which is normally implemented via [loader plugin](https://github.com/tbranyen/use.js) in other loaders).
+*New in Intern 1.3*
+
+Intern allows `client.html`/`client.js` to be used with alternative AMD loaders. This is useful in the case that you are using a specific feature that only exists in a particular loader (most commonly, RequireJS’s `shim` functionality, which is normally implemented via [loader plugin](https://github.com/tbranyen/use.js) in other loaders).
 
 To use an alternative loader, simply add a `useLoader` configuration option to your Intern configuration file. Two keys are currently supported, `host-node` and `host-browser`, which correspond to the loader that will be used in Node.js and in the browser, respectively.
 
