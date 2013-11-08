@@ -39,11 +39,10 @@ Note that version numbers must be strings if using Sauce Labs.</td>
 </tr>
 
 <tr>
-<th scope="row"><code>loader</code><br><pre><code>
-Default baseUrl on Node.js is `process.cwd()`
-Default baseUrl in browser is `internDir + '../../'`
-
-{ baseUrl: baseUrl,
+<th scope="row"><code>loader</code><br>
+Default baseUrl on Node.js is <code>process.cwd()</code><br>
+Default baseUrl in browser is <code>internDir + '../../'</code><br><br>
+<pre><code>{ baseUrl: baseUrl,
   packages: [
     { name: 'intern',
       location: internDir }
@@ -56,13 +55,6 @@ Default baseUrl in browser is `internDir + '../../'`
   } }
 }</code></pre></th>
 <td>Configuration options for the AMD module loader. Any <a href="https://github.com/amdjs/amdjs-api/wiki/Common-Config">AMD configuration options</a> supported by the Dojo loader can be used here. If you are testing an AMD application and need to use stub modules for testing, the <code>map</code> configuration option is the correct way to do this.</td>
-</tr>
-
-<tr>
-<th scope="row"><code>loaderUrl</code><br>node_modules/dojo/dojo.js</th>
-<td><i>New in Intern 1.3.</i> If you want to use an alternative AMD loader like RequireJS within client.html, provide the path to the alternative loader here, relative to the Intern directory. The loader must expose itself as a global <code>require</code> function, must support configuration through <code>require.config</code>, and must support the <code>baseUrl</code>, <code>map</code>, and <code>packages</code> configuration options.<br>
-<br>
-Loaders from third party CDNs may be used, but you must modify client.html and set the <code>allowXss</code> variable to true. Be aware that doing this enables arbitrary code injection, so don’t use this on a public-facing site.</td>
 </tr>
 
 <tr>
@@ -88,6 +80,14 @@ Loaders from third party CDNs may be used, but you must modify client.html and s
 <tr>
 <th scope="row"><code>suites</code><br>(empty array)</th>
 <td>An array of module IDs corresponding to individual unit test suites that you want to execute when running Intern. This option can be overridden in most cases by specifying one or more <code>suites</code> options on the command-line.</td>
+</tr>
+
+<tr>
+<th scope="row"><code>useLoader</code><br><pre><code>{
+  'host-node': 'dojo/dojo',
+  'host-browser': 'node_modules/dojo/dojo.js'
+}</code></pre></th>
+<td><i>New in Intern 1.3.</i> If you want to use an alternative AMD loader like RequireJS when running unit tests, provide the path to the alternative loader here, relative to the Intern directory. The <code>host-node</code> loader should be a Node.js module ID, and the <code>host-browser</code> loader should be a URL to a script file. The loader must support the <code>baseUrl</code>, <code>map</code>, and <code>packages</code> configuration options.</td>
 </tr>
 
 <tr>
