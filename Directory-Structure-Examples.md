@@ -1,3 +1,5 @@
+*This information is obsolete as of Intern 1.3. You may set `loader.baseUrl` to any value in Intern 1.3, which enables you to use arbitrary directory structures.*
+
 When integrating Intern with an existing project, or when starting a new project, it’s useful to understand which directory structures are suitable for use with Intern and which structures will need to be modified to conform to the way Intern works. The only structural restriction is that the entire project, including all dependencies, need to be accessible from the directory located two levels above the Intern directory.
 
 ## Valid structures
