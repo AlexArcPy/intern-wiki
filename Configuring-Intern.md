@@ -89,10 +89,10 @@ Default baseUrl in browser is <code>internDir + '../../'</code><br><br>
 }</code></pre></th>
 <td><i>New in Intern 1.3.</i> If you want to use an alternative AMD loader like RequireJS when running unit tests, provide the path to the alternative loader here, relative to the Intern directory. The <code>host-node</code> loader should be a Node.js module ID, and the <code>host-browser</code> loader should be a URL to a script file. The loader must support the <code>baseUrl</code>, <code>map</code>, and <code>packages</code> configuration options.<br>
 <br>
-For example, to use RequireJS:
+For example, to use RequireJS installed in your parent project:
 <pre><code>useLoader: {
   'host-node': 'requirejs',
-  'host-browser': 'node_modules/requirejs/require.js'
+  'host-browser': '../../node_modules/requirejs/require.js'
 }</code></pre>
 </td>
 </tr>
