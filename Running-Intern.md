@@ -16,28 +16,10 @@ The following arguments can be used when running Intern:
 <td>browser, cli</td>
 </tr>
 <tr>
-<th scope="row"><code>baseUrl</code></th>
-<td>Yes</td>
-<td><i>New in Intern 1.3.</i> The base URL of the entire application being tested. Defaults to two levels above the Intern directory.</td>
-<td>browser</td>
-</tr>
-<tr>
 <th scope="row"><code>config</code></th>
 <td>No</td>
 <td>The module ID of the configuration file that should be used when running Intern. The module ID will be resolved relative to the current working directory on the command-line, and relative to the <code>baseUrl</code> option in the browser.</td>
 <td>browser, cli</td>
-</tr>
-<tr>
-<th scope="row"><code>loader</code></th>
-<td>Yes</td>
-<td><i>New in Intern 1.3.</i> Specify an alternative AMD loader to use with Node.js instead of the default AMD loader. For RequireJS, this will be <code>loader=requirejs</code>. Defaults to the included Dojo AMD loader.</td>
-<td>cli</td>
-</tr>
-<tr>
-<th scope="row"><code>loaderUrl</code></th>
-<td>Yes</td>
-<td><i>New in Intern 1.3.</i> Specify an alternative AMD loader to use within the browser instead of the default AMD loader. The path should be relative to the <code>baseUrl</code> argument (<em>not</em> the <code>loader.baseUrl</code> configuration option; the configuration file is not loaded until after the AMD loader). Defaults to the included Dojo AMD loader.</td>
-<td>browser</td>
 </tr>
 <tr>
 <th scope="row"><code>proxyOnly</code></th>
