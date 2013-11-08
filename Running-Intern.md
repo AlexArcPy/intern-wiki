@@ -1,5 +1,3 @@
-Running Intern is straightforward. You may simply execute the included `bin/intern-client` or `bin/intern-runner` scripts *(Intern 1.3+)*, or use the [[Grunt task|Using Intern with Grunt]].
-
 The following arguments can be used when running Intern:
 
 <table>
@@ -13,7 +11,7 @@ The following arguments can be used when running Intern:
 <th scope="row"><code>autoRun</code></th>
 <td>Yes</td>
 <td>When set to <code>false</code>, tests will not start running automatically after they are all loaded. Otherwise, if <code>true</code> or left undefined, tests will start running automatically.</td>
-<td>browser, cli</td>
+<td>browser, client cli</td>
 </tr>
 <tr>
 <th scope="row"><code>config</code></th>
@@ -25,7 +23,7 @@ The following arguments can be used when running Intern:
 <th scope="row"><code>proxyOnly</code></th>
 <td>Yes</td>
 <td>When using <code>runner.js</code>, the <code>proxyOnly</code> argument may be provided. This causes the runner to start the instrumenting proxy but perform no other work, so you can load instrumented tests by manually navigating to <code>{{proxyUrl}}/__intern/client.html</code>.</td>
-<td>cli</td>
+<td>runner cli</td>
 </tr>
 <tr>
 <th scope="row"><code>reporters</code></th>
@@ -62,30 +60,30 @@ http://localhost/my-project/node_modules/intern/client.html?config=tests/intern&
 
 ## As a stand-alone Node.js client
 
-This execution method is useful when you are in the process of writing unit tests that do not require a browser and you want to quickly check to make sure that they are actually working. It is invoked by running `node client.js`. The command-line arguments for `client.js` are identical to the URL arguments for running a stand-alone browser client. A typical execution that runs all tests and outputs results to the console would look like this:
+This execution method is useful when you are in the process of writing unit tests that do not require a browser and you want to quickly check to make sure that they are actually working. It is invoked by running `intern-client`. The command-line arguments for `client.js` are identical to the URL arguments for running a stand-alone browser client. A typical execution that runs all tests and outputs results to the console would look like this:
 
 ```bash
-node my-project/node_modules/intern/client.js config=tests/intern
+intern-client config=tests/intern
 ```
 
 A more complex execution might look like this:
 
 ```bash
-node my-project/node_modules/intern/client.js config=tests/intern suites=my-package/tests/request \
+intern-client config=tests/intern suites=my-package/tests/request \
   suites=my-package/tests/animation reporters=console reporters=lcov
 ```
 
-Note that when running on Windows, all command-line options must be surrounded by quotes.
+Note that when running on Windows, all command-line options must be surrounded by quotes. Also note that the commands above rely on npm being installed and configured properly; if you do not have your environment PATH set properly, you may run `my-package/node_modules/intern/bin/intern-client.js` directly instead.
 
 ## As an instrumenting proxy for generating code coverage data
 
 This execution method is useful when you want to generate raw code coverage data for use with Istanbul without needing to set up a browser testing infrastructure. It is invoked by running `node runner.js proxyOnly`. The `config` argument should be the module ID of your project’s Intern configuration file (typically `tests/intern`). The proxy will run indefinitely until you quit using Ctrl+C. An execution of this method would look like this:
 
 ```bash
-node my-project/node_modules/intern/runner.js config=tests/intern proxyOnly
+intern-runner config=tests/intern proxyOnly
 ```
 
-Note that because this method does not run any tests, the `suites` and `reporters` options are not applicable.
+Note that because this method does not run any tests, the `suites` and `reporters` options are not applicable. Also note that the commands above rely on npm being installed and configured properly; if you do not have your environment PATH set properly, you may run `my-package/node_modules/intern/bin/intern-runner.js` directly instead.
 
 ## As a test runner for multi-platform testing
 
@@ -104,13 +102,13 @@ More information on how to configure Intern to work with your testing infrastruc
 A typical execution of this method would look like this:
 
 ```bash
-node my-project/node_modules/intern/runner.js config=tests/intern
+intern-runner config=tests/intern
 ```
 
 A more complex execution would look like this:
 
 ```bash
-node my-project/node_modules/intern/runner.js config=tests/intern reporters=runner reporters=lcov
+intern-runner config=tests/intern reporters=runner reporters=lcov
 ```
 
 ## As a test runner for continuous integration
