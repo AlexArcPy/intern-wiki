@@ -96,7 +96,7 @@ CommonJS code, including Node.js built-ins, can be loaded as an AMD dependency f
 define([
 	'intern!object',
 	'intern/chai!assert',
-	'intern/node_modules/dojo/node!path'
+	'intern/dojo/node!path'
 ], function (registerSuite, assert, path) {
 	registerSuite({
 		name: 'path',
