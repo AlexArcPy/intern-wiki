@@ -12,6 +12,12 @@ The following reporters are included in a standard Intern installation and can b
 </tr>
 
 <tr>
+<th scope="row">cobertura</th>
+<td>client (Node.js), runner</td>
+<td><i>New in Intern 1.4</i> This reporter generates a Cobertura-compatible XML report from collated coverage data.</td>
+</tr>
+
+<tr>
 <th scope="row">console</th>
 <td>client</td>
 <td>This reporter outputs test pass/fail messages to the console, grouped by suite.</td>
@@ -19,8 +25,14 @@ The following reporters are included in a standard Intern installation and can b
 
 <tr>
 <th scope="row">lcov</th>
-<td>runner</td>
+<td>client (Node.js), runner</td>
 <td>This reporter generates an <code>lcov.info</code> from collated coverage data.</td>
+</tr>
+
+<tr>
+<th scope="row">lcovhtml</th>
+<td>client (Node.js), runner</td>
+<td><i>New in Intern 1.4</i> This reporter generates a set of illustrated HTML reports from collated coverage data.</td>
 </tr>
 
 <tr>
