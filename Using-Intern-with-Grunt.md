@@ -4,7 +4,7 @@ An example of the Grunt Intern task is available in the [intern-examples reposit
 
 ## Task Options
 
-Options available when running Intern using Grunt are the same as the [options available when running Intern directly from the command-line](Running-Tests), plus the following additional options:
+Options available when running Intern using Grunt are the same as the [[options available when running Intern directly from the command-line|Running Intern]], plus the following additional options:
 
 <table>
 <tr>
