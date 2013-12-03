@@ -4,7 +4,8 @@ Intern allows `client.html`/`client.js` to load and use alternative AMD loaders.
 
 To use an alternative loader, simply add the `useLoader` configuration option to your Intern configuration file. Two keys are currently supported, `host-node` and `host-browser`, which correspond to the loader that will be used in Node.js and in the browser, respectively.
 
-`host-node` should be a standard Node.js module ID, like `dojo/dojo`, or `requirejs`. The module will be resolved using the standard Node.js module resolution system.
+`host-node` should be a standard Node.js module ID, like `dojo/dojo`, or `requirejs`. The module will be resolved using the standard Node.js module resolution system. Note that you will need to add the `intern/node_modules` directory to your `NODE_PATH` environment. This restriction will be lifted as soon as possible.
+
 `host-browser` should be a path to a script file, relative to `client.html`, like `node_modules/dojo/dojo.js`, or `../../bower_components/requirejs/require.js`. The module will be loaded using script injection.
 
 You may omit either key, in which case the default (Dojo) loader will be used instead.
