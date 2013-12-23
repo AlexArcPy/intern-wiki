@@ -63,7 +63,7 @@ this.remote
 </pre>
 
 ### 2. Use the methods available on the <code>remote</code> object to interact with the remote context.
-The <code>remote</code> object corresponds to the standard <a href="http://www.w3.org/TR/webdriver/">WebDriver API</a> with a fluid, promises-wrapped <a href="https://github.com/admc/wd">WD.js</a>. See <a href="https://github.com/admc/wd#supported-methods">this link</a> for all methods available for functional testing.
+The <code>remote</code> object corresponds to the standard [WebDriver API](http://www.w3.org/TR/webdriver/) with a fluid, promises-wrapped [WD.js](https://github.com/admc/wd). See [methods available for functional testing](https://github.com/admc/wd/blob/master/doc/api.md).
 <pre>
 this.remote
 	.get(require.toUrl('./fixture.html'))
