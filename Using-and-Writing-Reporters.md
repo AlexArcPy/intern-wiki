@@ -43,7 +43,7 @@ The following reporters are included in a standard Intern installation and can b
 
 <tr>
 <th scope="row">teamcity</th>
-<td>runner</td>
+<td>client (Node.js), runner</td>
 <td><i>New in Intern 1.4</i> This reporter outputs test result information to the console in a TeamCity-compatible format.</td>
 </tr>
 
