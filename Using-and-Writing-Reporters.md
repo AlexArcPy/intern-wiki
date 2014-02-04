@@ -42,6 +42,12 @@ The following reporters are included in a standard Intern installation and can b
 </tr>
 
 <tr>
+<th scope="row">teamcity</th>
+<td>runner</td>
+<td><i>New in Intern 1.4</i> This reporter outputs test result information to the console in a TeamCity-compatible format.</td>
+</tr>
+
+<tr>
 <th scope="row">webdriver</th>
 <td>client</td>
 <td>This reporter proxies test results from a client back to the test runner via the instrumentation proxy. It also displays very basic running test output as HTML to provide improved state information when watching a test run via Sauce Labs live view. This reporter is used automatically when the test runner runs unit tests in a browser and should typically never be specified directly.</td>
