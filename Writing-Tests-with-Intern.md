@@ -49,6 +49,8 @@ define([
 
 In this example, an XHR call is performed. When the call is completed successfully, the data is checked to make sure it is correct. If the data is correct, `dfd` will be resolved; otherwise, it will be rejected (because `assert.strictEqual` will throw an error). If the call fails, `dfd.reject` is called.
 
+The `this.async` function also accepts a second argument, `numCallsUntilResolution`, which allows you to specify how many times `dfd.callback` should be called before actually resolving the promise. This is useful in rare cases where you may intend for a callback to be invoked a known number of times, greater than once, and the test should be considered complete after the last invocation.
+
 ## Functional testing
 
 In addition to regular unit tests, Intern supports a type of testing that can simulate user interaction with DOM elements, known as **functional testing**. Functional tests are slightly different from normal unit tests because they are executed remotely from the test runner,
