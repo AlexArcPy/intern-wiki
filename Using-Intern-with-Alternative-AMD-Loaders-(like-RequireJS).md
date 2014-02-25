@@ -8,6 +8,6 @@ To use an alternative loader, simply add the `useLoader` configuration option to
 
 `host-browser` should be a path to a script file, relative to `client.html`, like `node_modules/dojo/dojo.js`, or `../../bower_components/requirejs/require.js`. The module will be loaded using script injection.
 
-You may omit either key, in which case the default (Dojo) loader will be used instead.
+You may omit either key, in which case the default (Dojo 2) loader will be used instead.
 
 Additional information about `useLoader`, including an example, is available in the [[Configuring Intern]] documentation.
