@@ -1,3 +1,5 @@
+Welcome to the Intern documentation! If you can’t find what you are looking for here, check out some of the [questions on Stack Overflow](https://stackoverflow.com/questions/tagged/intern).
+
 ### Getting started
 
 * [Getting Started Tutorial](https://github.com/theintern/intern-tutorial)
