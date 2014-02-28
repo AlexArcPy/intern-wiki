@@ -77,7 +77,7 @@ Note that when running on Windows, all command-line options must be surrounded b
 
 ## As an instrumenting proxy for generating code coverage data
 
-This execution method is useful when you want to generate raw code coverage data for use with Istanbul without needing to set up a browser testing infrastructure. It is invoked by running `intern-runner --proxyOnly`. The `config` argument should be the module ID of your project’s Intern configuration file (typically `tests/intern`). The proxy will run indefinitely until you quit using Ctrl+C. An execution of this method would look like this:
+This execution method is useful when you want to generate raw code coverage data for use with Istanbul without needing to set up a browser testing infrastructure. It is invoked by running `intern-runner proxyOnly`. The `config` argument should be the module ID of your project’s Intern configuration file (typically `tests/intern`). The proxy will run indefinitely until you quit using Ctrl+C. An execution of this method would look like this:
 
 ```bash
 intern-runner config=tests/intern proxyOnly
@@ -87,7 +87,7 @@ Note that because this method does not run any tests, the `suites` and `reporter
 
 ## As a test runner for multi-platform testing
 
-This execution method is useful when you want to run tests across all supported environments without needing a separate continuous integration server. It is invoked by running `intern-runner` without the `--proxyOnly` argument. One or more `reporters` arguments may also be added to override the reporters specified in the config.
+This execution method is useful when you want to run tests across all supported environments without needing a separate continuous integration server. It is invoked by running `intern-runner` without the `proxyOnly` argument. One or more `reporters` arguments may also be added to override the reporters specified in the config.
 
 In order to use this method, you will need one of the following:
 
