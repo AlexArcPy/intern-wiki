@@ -77,7 +77,7 @@ Note that when running on Windows, all command-line options must be surrounded b
 
 ## As an instrumenting proxy for generating code coverage data
 
-This execution method is useful when you want to generate raw code coverage data for use with Istanbul without needing to set up a browser testing infrastructure. It is invoked by running `node runner.js proxyOnly`. The `config` argument should be the module ID of your project’s Intern configuration file (typically `tests/intern`). The proxy will run indefinitely until you quit using Ctrl+C. An execution of this method would look like this:
+This execution method is useful when you want to generate raw code coverage data for use with Istanbul without needing to set up a browser testing infrastructure. It is invoked by running `intern-runner --proxyOnly`. The `config` argument should be the module ID of your project’s Intern configuration file (typically `tests/intern`). The proxy will run indefinitely until you quit using Ctrl+C. An execution of this method would look like this:
 
 ```bash
 intern-runner config=tests/intern proxyOnly
@@ -87,7 +87,7 @@ Note that because this method does not run any tests, the `suites` and `reporter
 
 ## As a test runner for multi-platform testing
 
-This execution method is useful when you want to run tests across all supported environments without needing a separate continuous integration server. It is invoked by running `node runner.js` without the `proxyOnly` argument. One or more `reporters` arguments may also be added to override the reporters specified in the config.
+This execution method is useful when you want to run tests across all supported environments without needing a separate continuous integration server. It is invoked by running `intern-runner` without the `--proxyOnly` argument. One or more `reporters` arguments may also be added to override the reporters specified in the config.
 
 In order to use this method, you will need one of the following:
 
@@ -118,7 +118,7 @@ This execution method useful when you want to enforce code quality standards acr
 In order to use this method, in addition to the above, you will need one of the following:
 
 * A [Travis CI](http://travis-ci.org/) account and a GitHub repository
-* A custom post-receive (Git) or post-commit (Subversion) hook that executes `node runner.js` as described above and notifies you if it returns a non-zero exit code.
+* A custom post-receive (Git) or post-commit (Subversion) hook that executes `intern-runner` as described above and notifies you if it returns a non-zero exit code.
 
 You may also use other third party continuous integration solutions like [Jenkins CI](http://jenkins-ci.org/) or [TeamCity](https://www.jetbrains.com/teamcity/). We are very interested in providing wider support for these solutions, so please submit a pull request if you have created any plugins that enable easy interoperability.
 
