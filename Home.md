@@ -1,6 +1,6 @@
 ### Getting started
 
-* [Tutorial](https://github.com/theintern/intern-tutorial)
+* [Getting Started Tutorial](https://github.com/theintern/intern-tutorial)
 * [[Configuring Intern]]
 * [[Writing Tests with Intern]]
 * [[Running Intern]]
