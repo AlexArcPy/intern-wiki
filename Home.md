@@ -15,9 +15,9 @@ Welcome to the Intern documentation! If you can’t find what you are looking fo
 * [[Using Intern with Grunt]]
 * [[Using Intern with PhantomJS]]
 * [[Using Intern to unit test Ajax calls]]
-* [[Travis CI integration]]
-* [Jenkins CI integration](https://hellinterface.wordpress.com/javascript/theintern/theintern-and-jenkins-integration-part1/) (third-party blog)
 
 ### Advanced topics
 
+* [[Travis CI integration]]
+* [Jenkins CI integration](https://hellinterface.wordpress.com/javascript/theintern/theintern-and-jenkins-integration-part1/) (third-party blog)
 * [[Working On Intern]]
