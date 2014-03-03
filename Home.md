@@ -3,6 +3,7 @@ Welcome to the Intern documentation! If you can’t find what you are looking fo
 ### Getting started
 
 * [Getting Started Tutorial](https://github.com/theintern/intern-tutorial)
+* [Integration Examples (jQuery, Dojo, Ember, Angular, etc.)](https://github.com/theintern/intern-examples)
 * [[Configuring Intern]]
 * [[Writing Tests with Intern]]
 * [[Running Intern]]
