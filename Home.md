@@ -6,6 +6,7 @@ Welcome to the Intern documentation! If you can’t find what you are looking fo
 * [Integration Examples (jQuery, Dojo, Ember, Angular, etc.)](https://github.com/theintern/intern-examples)
 * [[Configuring Intern]]
 * [[Writing Tests with Intern]]
+* [Functional testing API](https://github.com/admc/wd/blob/master/doc/api.md)
 * [[Running Intern]]
 * [[Getting Support|Support]]
 
