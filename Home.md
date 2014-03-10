@@ -20,6 +20,7 @@ Welcome to the Intern documentation! If you can’t find what you are looking fo
 
 ### Advanced topics
 
+* [[Using Custom Arguments and Configuration Properties]]
 * [[Travis CI integration]]
 * [Jenkins CI integration](https://hellinterface.wordpress.com/javascript/theintern/theintern-and-jenkins-integration-part1/) (third-party blog)
 * [[Working On Intern]]
