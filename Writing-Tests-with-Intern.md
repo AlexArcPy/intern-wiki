@@ -43,7 +43,7 @@ define([
 
 			request('http://example.com/test.json').then(dfd.callback(function (data) {
 				assert.strictEqual(data, 'Hello world!');
-			}, dfd.reject.bind(dfd));
+			}), dfd.reject.bind(dfd));
 		}
 	});
 });
