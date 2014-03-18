@@ -20,9 +20,15 @@ The following arguments can be used when running Intern:
 <td>browser, cli</td>
 </tr>
 <tr>
+<th scope="row"><code>leaveRemoteOpen</code></th>
+<td>Yes</td>
+<td>When using <code>intern-runner</code>, the <code>leaveRemoteOpen</code> argument will prevent the remote browser instance from terminating at the end of a test run, in order to more easily enable the investigation of a browser’s state during test debugging.</td>
+<td>runner cli</td>
+</tr>
+<tr>
 <th scope="row"><code>proxyOnly</code></th>
 <td>Yes</td>
-<td>When using <code>runner.js</code>, the <code>proxyOnly</code> argument may be provided. This causes the runner to start the instrumenting proxy but perform no other work, so you can load instrumented tests by manually navigating to <code>{{proxyUrl}}/__intern/client.html</code>.</td>
+<td>When using <code>intern-runner</code>, the <code>proxyOnly</code> argument may be provided. This causes the runner to start the instrumenting proxy but perform no other work, so you can load instrumented tests by manually navigating to <code>{{proxyUrl}}/__intern/client.html</code>.</td>
 <td>runner cli</td>
 </tr>
 <tr>
@@ -60,7 +66,7 @@ http://localhost/my-project/node_modules/intern/client.html?config=tests/intern&
 
 ## As a stand-alone Node.js client
 
-This execution method is useful when you are in the process of writing unit tests that do not require a browser and you want to quickly check to make sure that they are actually working. It is invoked by running `intern-client`. The command-line arguments for `client.js` are identical to the URL arguments for running a stand-alone browser client. A typical execution that runs all tests and outputs results to the console would look like this:
+This execution method is useful when you are in the process of writing unit tests that do not require a browser and you want to quickly check to make sure that they are actually working. It is invoked by running `intern-client`. The command-line arguments for `intern-client` are identical to the URL arguments for running a stand-alone browser client. A typical execution that runs all tests and outputs results to the console would look like this:
 
 ```bash
 intern-client config=tests/intern
@@ -73,7 +79,7 @@ intern-client config=tests/intern suites=my-package/tests/request \
   suites=my-package/tests/animation reporters=console reporters=lcov
 ```
 
-Note that when running on Windows, all command-line options must be surrounded by quotes. Also note that the commands above rely on npm being installed and configured properly; if you do not have your environment PATH set properly, you may run `my-package/node_modules/intern/bin/intern-client.js` directly instead.
+Note that when running on Windows, all command-line options must be surrounded by quotes. Also note that the commands above rely on npm being installed and configured properly; if you do not have your environment PATH set properly, you may run `my-package/node_modules/.bin/intern-client` directly instead.
 
 ## As an instrumenting proxy for generating code coverage data
 
@@ -83,7 +89,7 @@ This execution method is useful when you want to generate raw code coverage data
 intern-runner config=tests/intern proxyOnly
 ```
 
-Note that because this method does not run any tests, the `suites` and `reporters` options are not applicable. Also note that the commands above rely on npm being installed and configured properly; if you do not have your environment PATH set properly, you may run `my-package/node_modules/intern/bin/intern-runner.js` directly instead.
+Note that because this method does not run any tests, the `suites` and `reporters` options are not applicable. Also note that the commands above rely on npm being installed and configured properly; if you do not have your environment PATH set properly, you may run `my-package/node_modules/.bin/intern-runner` directly instead.
 
 ## As a test runner for multi-platform testing
 
