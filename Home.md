@@ -6,7 +6,7 @@ Welcome to the Intern documentation! If you can’t find what you are looking fo
 * [Integration Examples (jQuery, Dojo, Ember, Angular, etc.)](https://github.com/theintern/intern-examples)
 * [[Configuring Intern]]
 * [[Writing Tests with Intern]]
-* [Functional Testing API](https://github.com/admc/wd/blob/master/doc/api.md) _(NOTE: Intern converts callbacks into promises, so ignore the callback signatures)_
+* [Functional Testing API](https://github.com/admc/wd/blob/v0.2.2/doc/jsonwire-full-mapping.md) _(NOTE: Intern converts callbacks into promises, so ignore the callback signatures)_
 * [[Running Intern]]
 * [[Getting Support|Support]]
 
