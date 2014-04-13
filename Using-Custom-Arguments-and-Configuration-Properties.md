@@ -8,5 +8,21 @@ require([ 'intern' ], function (intern) {
   // config object
   intern.config;
 });
+```
 
+This makes it possible to, for example, define a dynamic proxy URL from the command-line or Grunt task:
+
+```js
+// in tests/config.js
+define([ 'intern' ], function (intern) {
+  return {
+    proxyUrl: intern.args.proxyUrl,
+
+    // ... additional configuration ...
+  };
+});
+```
+
+```bash
+$ intern-runner config=tests/config proxyUrl=http://www.example.com:1234/
 ```
