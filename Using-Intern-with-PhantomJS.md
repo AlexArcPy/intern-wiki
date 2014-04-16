@@ -1,3 +1,5 @@
+**PhantomJS is not a suitable replacement for testing in real browsers. Do not use PhantomJS unless you are aware of the caveats of testing against fake browsers.**
+
 While PhantomJS is not a suitable replacement for testing in real browsers, it is often quicker and easier to test with PhantomJS when writing your tests and then let your CI service handle running tests across all platforms.
 
 Using a local PhantomJS installation with Intern is very simple:
