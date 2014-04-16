@@ -4,7 +4,7 @@ While PhantomJS is not a suitable replacement for testing in real browsers, it i
 
 Using a local PhantomJS installation with Intern is very simple:
 
-1. In your Intern configuration, set `environments: [ { browserName: 'phantom' } ]` and `useSauceConnect: false`
+1. In your Intern configuration, set `environments: [ { browserName: 'phantomjs' } ]` and `useSauceConnect: false`
 2. Run `phantomjs --webdriver=4444`
 3. Run `intern-runner config=path/to/config`
 
